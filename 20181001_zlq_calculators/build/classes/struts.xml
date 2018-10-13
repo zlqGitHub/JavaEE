@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<package name="cal" extends="struts-default" namespace="/zlq">
+		<action name="cal1" class="nuc.sw.dangdang.Action.Cal1Action">
+			<result name="success">
+				/cal1.jsp
+			</result>
+		</action>
+		<action name="cal2" class="nuc.sw.dangdang.Action.Cal2Action">
+			<result name="success">
+				/cal2.jsp
+			</result>
+		</action>
+		<action name="cal3" class="nuc.sw.dangdang.Action.Cal3Action">
+			<result name="success">
+				/cal3.jsp
+			</result>
+		</action>
+	</package>
+	
+</struts>
