@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/> 
+	<package name="default" extends="struts-default" namespace="/">
+	
+		<action name="*_*Action" class="nuc.sw.dangdang.Action.{2}Action" method="{1}{2}Method">
+        	<result name="insertOK" type="chain">get_BookAction</result>
+        	<result name="getBookOk">
+        		/showBook.jsp
+        	</result>
+        </action>
+        
+		<action name="*Action" class="nuc.sw.dangdang.Action.UserAction" method="{1}Method">
+			<result name="input">/user.jsp</result>
+			<result name="loginOK">
+				/success.jsp
+			</result>
+			<result name="login">
+				/user.jsp
+			</result>
+			<result name="registOK">
+				/user.jsp
+			</result>
+		</action>
+
+
+	</package>
+	
+</struts>
