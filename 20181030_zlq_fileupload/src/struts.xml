@@ -17,8 +17,10 @@
 				</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"/>
+			
 			<param name="savePath">/D:\JavaEE\file</param>
 			<result name="uploadOK">
+			
 				/success.jsp
 			</result>
 			<result name="input">/fileupload.jsp</result>
