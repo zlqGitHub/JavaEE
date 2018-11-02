@@ -8,10 +8,20 @@
 	<constant name="struts.multipart.saveDir" value="D:\JavaEE\file"></constant>
 	<package name="file" extends="struts-default" namespace="/">
 		<action name="UploadAction" class="nuc.sw.dangdang.action.UploadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/jpeg,image/gif
+				</param>
+				<param name="allowedExtensions">   
+					jpg
+				</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
 			<param name="savePath">/D:\JavaEE\file</param>
 			<result name="uploadOK">
 				/success.jsp
 			</result>
+			<result name="input">/fileupload.jsp</result>
 		</action>
 	</package>
 
