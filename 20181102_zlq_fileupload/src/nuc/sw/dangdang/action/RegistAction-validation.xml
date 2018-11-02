@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE validators PUBLIC
+ 		"-//Apache Struts//XWork Validator 1.0.3//EN"
+ 		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="email">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>email不能为空！</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(^[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9.]+$)]]></param>
+			<message>email格式不正确！</message>
+		</field-validator>
+	</field>
+	
+	<field name="password">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>密码不能为空！</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(\w{4,25})]]></param>
+			<message>密码必须是字母和数字，且长度在4~25之间！</message>
+		</field-validator>
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[password == password2]]></param>
+			<message>两次密码不一致！</message>
+		</field-validator>
+	</field>
+	
+	<field name="username">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>姓名不能为空！</message>
+		</field-validator>
+
+	</field>
+	
+	<field name="telphone">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>电话不能为空！</message>
+		</field-validator>
+		<field-validator type="regex">
+			<param name="regexExpression"><![CDATA[(1[3578][0134579]\d{8})]]></param>
+			<message>电话格式不正确！</message>
+		</field-validator>
+	</field>
+	
+</validators>
