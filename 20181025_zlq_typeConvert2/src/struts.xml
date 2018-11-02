@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="regist" extends="struts-default">
+	
+		<action name="*_*Action" class="nuc.sw.dangdang.action.{2}Action" method="{1}{2}Method">
+        	<result name="insertOK" type="chain">get_BookAction</result>
+        	<result name="deleteOK" type="chain">get_BookAction</result>
+        	<result name="confirmUpdataOK" type="chain">get_BookAction</result>
+        	<result name="updataOK">
+        		/updataBook.jsp
+        	</result>
+        	<result name="getBookOk">
+        		/showBook.jsp
+        	</result>
+        </action>
+		
+		<action name="registAction" class="nuc.sw.dangdang.action.RegistAction" method="registMethod">
+			<result name="input">/regist.jsp</result>
+			<result name="registOK">
+				/login.jsp
+			</result>
+		</action>
+	
+		<action name="loginAction" class="nuc.sw.dangdang.action.LoginAction" method="loginMethod">
+			<result name="input">/login.jsp</result>
+			<result name="loginOK">
+				/success.jsp
+			</result>
+		</action>
+	
+	</package>
+
+</struts>
