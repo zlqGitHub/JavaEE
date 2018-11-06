@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 设置常量更改临时文件路径 -->
+	<constant name="struts.multipart.saveDir" value="D:\JavaEE\file"></constant>
+	<package name="file" extends="struts-default" namespace="/">
+		<action name="UploadAction" class="nuc.sw.dangdang.action.UploadAction" method="execute">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/png,image/jpeg,image/gif,text/plain,application/msword
+				</param>
+				<param name="allowedExtensions">   
+					jpg
+				</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="savePath">/D:\JavaEE\file</param>
+			<result name="uploadOK">
+				/success.jsp
+			</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+	</package>
+
+</struts>
+  		
+
+
+  		
+
