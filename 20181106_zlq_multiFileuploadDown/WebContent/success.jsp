@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	上传成功！
+	上传成功！<br>
 	
 	<s:iterator value="fileItems" var="fItem">
 		<a href="downloadAction?inputPath=${fItem.filePath}&contentType=${fItem.fileName}&downFileName=${fItem.fileName}">${fItem.fileName}</a><br>	

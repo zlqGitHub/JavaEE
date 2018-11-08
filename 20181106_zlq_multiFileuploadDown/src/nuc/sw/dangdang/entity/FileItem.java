@@ -1,7 +1,6 @@
 package nuc.sw.dangdang.entity;
 
-
-
+//用来封装文件的信息
 public class FileItem {
 	private String filePath;
 	private String fileName;
