@@ -32,3 +32,29 @@ public class LoginInterceptor extends AbstractInterceptor{
 }
 
 
+
+//自定义访问拦截器 
+package nuc.sw.dangdang.interceptor;
+
+import com.opensymphony.xwork2.ActionInvocation;
+import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+
+@SuppressWarnings("serial")
+public class LogIntercepter extends AbstractInterceptor {
+//记录访问Action的时间
+	@SuppressWarnings("unused")
+	@Override
+	public String intercept(ActionInvocation arg0) throws Exception {
+		// TODO Auto-generated method stub
+		String name = arg0.getAction().getClass().getName();  //获取Action
+		String method = arg0.getProxy().getMethod();    //获取方法
+		long start = System.currentTimeMillis();    //系统开始时间
+		String result = arg0.invoke();
+		long end = System.currentTimeMillis();    //系统结束时间
+		System.out.println("访问"+name+"的"+method+"方法共花费的时间为："+(end-start));
+		return result;
+	}
+
+}
+
+
