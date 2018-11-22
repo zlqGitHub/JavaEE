@@ -1,10 +1,12 @@
 package nuc.sw.dangdang.action;
 
 import java.io.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import nuc.sw.dangdang.entity.FileItem;
@@ -57,7 +59,7 @@ public class UploadAction extends ActionSupport{
 	}
 	
 	public String execute() throws IOException {
-		FileItem fileItem;   // 定义一个模型
+		FileItem fileItem = null;   // 定义一个模型
 		for(int i=0;i<getUpload().size();i++) {
 			fileItem = new FileItem();
 			String realPath = savePath+'/'+UUID.randomUUID()+uploadFileName.get(i);
@@ -83,7 +85,8 @@ public class UploadAction extends ActionSupport{
 			//getUploadFileName().set(i, savePath+'/'+UUID.randomUUID()+uploadFileName.get(i));
 
 		}
-		
+	
+		ActionContext.getContext().getSession().put("fileItems", fileItem);
 		
 		return "uploadOK";
 	}

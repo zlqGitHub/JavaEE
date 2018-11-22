@@ -8,10 +8,7 @@
 </head>
 <body>
 	
-	<s:iterator value="#session.fileItems" var="fItem">
-		<a href="downloadAction?inputPath=${fItem.filePath}&contentType=${fItem.fileName}&downFileName=${fItem.fileName}">${fItem.fileName}</a><br>	
-	
-	</s:iterator>
+	<a href="success.jsp">下载文件</a>
 	
 
 	

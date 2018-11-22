@@ -29,6 +29,7 @@ public class DownloadAction extends ActionSupport {
 		this.contentType = contentType;
 	}
 
+	//修改使得下载后的文件名正确
 	public String getDownFileName() throws UnsupportedEncodingException {
 		return URLEncoder.encode(downFileName, "utf-8");
 	}
@@ -36,7 +37,7 @@ public class DownloadAction extends ActionSupport {
 	public void setDownFileName(String downFileName) throws UnsupportedEncodingException {
 		this.downFileName = new String(downFileName.getBytes("iso-8859-1"),"utf-8");
 	}
-//修改使得下载后的文件名正确
+
 	public InputStream getTargetFile() throws FileNotFoundException {
 		InputStream is = new FileInputStream(inputPath);
 		return is;

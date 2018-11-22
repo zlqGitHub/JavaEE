@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s"  uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,14 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<s:iterator value="#session.fileItems" var="fItem">
-		<a href="downloadAction?inputPath=${fItem.filePath}&contentType=${fItem.fileName}&downFileName=${fItem.fileName}">${fItem.fileName}</a><br>	
-	
-	</s:iterator>
-	
-
-	
-
+	<s:fielderror cssStyle="color:red"/>
+	<s:form action="LoginAction" method="post">
+		<s:textfield label="用户名"  name="username"/>
+		<s:password label="密码"  name="password"/>
+		<s:submit value="登录"/>
+	</s:form>
 </body>
 </html>
