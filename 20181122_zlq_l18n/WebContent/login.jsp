@@ -14,11 +14,12 @@
 	<s:form action="loginAction" method="post">
 		<s:textfield name="username" key="用户名"></s:textfield>
 		<s:password name="password" key="密码"></s:password>
+		<s:select name="type" key="type" list="#{'0':getText('value1'),'1':getText('value2') }" ></s:select>
 		<s:submit key="login"></s:submit>
 	
 	</s:form>
-	<a href="loginAction?request_locale=en_US"><s:text name="英文显示"></s:text></a>
-	<a href="loginAction?request_locale=zh_CN"><s:text name="中文显示"></s:text></a>
+	<a href="loginAction?request_locale=en_US"><s:text name="en_version"></s:text></a>
+	<a href="loginAction?request_locale=zh_CN"><s:text name="zh_version"></s:text></a>
 
 </body>
 </html>

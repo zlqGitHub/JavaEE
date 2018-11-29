@@ -42,6 +42,8 @@ public class LoginAction extends ActionSupport {
 		if(username.equals("zlq")&&password.equals("000")){
 			//用户名放入session(Struts2访问session的方法)
 			ActionContext.getContext().getSession().put("user", username);
+			ActionContext.getContext().getSession().put("english", this.getText("english"));
+			ActionContext.getContext().getSession().put("chinese", this.getText("chinese"));
 			ActionContext.getContext().put("success", this.getText("succTip"));
 			return SUCCESS;
 		}else{
