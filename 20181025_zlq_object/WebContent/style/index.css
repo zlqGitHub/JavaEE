@@ -1,8 +1,107 @@
 @charset "UTF-8";
+/* 设置字体 */
+@font-face{
+	font-family: "STXINGKA";
+	src:url('../font/STXINGKA.TTF');    /* 系统自带字体 */
+			        
+}
 body{
 	background:#F7F7F7;
+	text-align: center;
+
 }
-.title{
-	color:#0487BD;	
-	font-size:40px;
+.title_zh{
+	color:#0487BD;
+	letter-spacing: 10px;
+	font-size:50px;
+	margin: 55px 0 10px 0;
+	font-family: "STXINGKA";
+	text-shadow: 4px 4px 5px #B9B5B4;
+}
+.title_en{
+	color:#0487BD;
+	font-size:15px;
+	text-shadow: 5px 3px 3px #B9B5B4;
+}
+.paly{
+	width:960px;
+	height: 360px;
+	margin: 20px auto 30px;
+}
+.paly_images{
+	width:960px;
+	height: 360px;
+	margin: 10px auto 30px;
+}
+.paly_images_ul{
+	width:960px;
+	height: 360px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+}
+.paly_images_ul li{
+	/*height: 360px; 	*/
+	list-style: none;
+	z-index: 0;
+	position: absolute;    /* 相对定位，相对于自己的位置 */
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.prev{
+	width: 60px;
+	height: 60px;
+	background: url(../images/btn.gif) no-repeat;
+	position: absolute;
+	z-index: 10000;
+	/*background: red;*/
+	top: 150px;
+	left: 40px;
+	filter:alpha(opacity:0);   /* IE8 以及更早的浏览器 */
+	opacity: 0;
+	cursor: pointer;
+}
+.next{
+	width: 60px;
+	height: 60px;
+	background: url(../images/btn.gif) no-repeat 0 -60px;
+	position: absolute;
+	z-index: 10000;
+	/*background: red;*/
+	top: 150px;
+	left: 860px;
+	filter:alpha(opacity:0);  
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+.click_btn,.click_btn2{
+	display: inline-block;
+	margin-top: 20px;
+	width: 210px;
+	height: 60px;
+	background: url(../images/d_a.png) no-repeat;
+}
+.click_btn{
+	background-position: 0 -125px;
+}
+.click_btn2{
+	background-position: 0 -189px;
+}
+span{
+	display: inline-block;
+	height: 60px;
+	line-height: 60px;
+	font-size: 24px;
+	color: #FFFFFF;
+	margin-left: 50px;
+}
+
+.bottom span{
+	color: #6692C7;
+	font-size: 15px;
+	margin: 25px auto -5px;
 }
