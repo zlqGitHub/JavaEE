@@ -101,3 +101,25 @@ input{
 .back a:hover{
 	color: red;
 }
+
+/* 错误信息提示 */
+.errorMessage{
+	display: block;
+	height:0;
+	color:red;
+	position:relative;
+	left:220px;
+	top:17px;
+}
+
+/* 注册成功后的显示 */
+.success{
+	width:260px;
+	height:260px;
+	position:relative;
+	top:-345px;
+	left:100px;
+}
+
+
+
