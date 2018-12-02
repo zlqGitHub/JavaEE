@@ -20,13 +20,13 @@
 		</div>
 		<div class="main_right">
 			<span>欢迎登录</span>
-			<s:form action="" name="form1" method="post">
+			<s:fielderror cssStyle="color:red" />
+			<s:form action="LoginAction" name="form1" method="post">
 				<s:textfield name="student_no" placeholder="用户名"/>
 				<s:password name="password" placeholder="密码"/>
-				<s:submit value="登录" cssStyle="display:block;background: #6993DB;border:none;color: #FFF;font-size: 18px;letter-spacing: 10px;margin-left:7px;"/>
-				
+				<s:submit value="登录" cssStyle="display:block;background: #6993DB;border:none;color: #FFF;font-size: 18px;letter-spacing: 10px;margin-left:7px;"/>			
 			</s:form>
-			<text>还没有账号？<a href="regist.jsp" target="frame">立即注册>></a></text>
+			<text>还没有账号？<a href="regist.jsp">立即注册>></a></text>
 		</div>
 	</div>
 
