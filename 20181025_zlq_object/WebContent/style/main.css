@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@font-face{
+	font-family: 'STCAIYUN';
+	src:url('C:/Windows/Fonts/STCAIYUN.TTF');
+}
+body{
+	overflow: auto;
+	margin: 0 auto;
+	background: #F0F3EF;
+}
+
+.header{
+	width: 100%;
+	height: 80px;
+	background: #A1CFFE;
+	border-bottom: 2px solid #85B0D8;
+}
+.header img{
+	position: relative;
+	top:10px;
+	left: 340px;
+	margin: auto;
+	float: left;
+}
+.header span{
+	position: relative;
+	left: 390px;
+	line-height: 80px;
+	font-family: 'STCAIYUN';
+	font-size: 50px;
+	color: red;
+	letter-spacing: 20px;
+}
+.shortcut{
+	height: 32px;
+	background: #E3E4E5;
+}
+.shortcut span{
+	display: block;
+	line-height: 32px;
+	color: #999999;
+	font-size: 14px;
+	position: absolute;
+	right: 235px;
+	
+}
+.a0:hover{
+	color:red;
+}
+.shortcut a{
+	text-decoration:none;
+	line-height: 32px;
+	color: #999999;
+	font-size: 14px;
+}
+.shortcut .a1{
+	position: absolute;
+	right: 130px;
+}
+.shortcut .a1:hover{
+	color:red;
+}
+.shortcut .a2{
+	position: absolute;
+	right: 50px;
+	color: red;
+}
+
+.main{
+	width: 1080px;
+	height: 1000px;
+	margin: 0 auto;
+	text-align: center;
+	/*background: green;*/
+}
+.left{
+	width: 180px;
+	height: 600px;
+	background: #FFFFFF;
+	float: left;
+	position: relative;
+	top:-33px;
+}
+.right{
+	width: 900px;
+	height: 600px;
+	float: left;
+}
+
+.logo{
+	width: 180px;
+	height: 180px;
+	border-bottom: 1px solid #EDEDED;
+}
+.bookType{
+	height: 500px;
+	/*background: yellow;*/
+}
+.bookType .menu{
+	padding: 6px 0;
+	height: 400px;
+	list-style: none;
+}
+.bookType .menu li{
+	width: 100px;
+	height: 26px;
+	margin: 5px 25px;
+	line-height: 26px;
+	padding-left: 0px;
+	text-align: left;
+}
+.bookType .menu li a{
+	text-decoration: none;
+	font-size: 14px;
+	color: #626262;
+}
+.bookType .menu li a:hover{
+	color: red;
+}
+
+.form{
+	width: 550px;
+	height: 35px;
+	/*background: blue;*/
+	margin: 20px auto;
+}
+.form .content{
+	width: 490px;
+	height: 29px;
+	line-height: 29px;
+	padding-left: 5px;
+}
+.form .submit{
+	width: 50px;
+	height: 35px;
+	margin-left: -5px;
+	border:none;
+	cursor: pointer;
+	background: url(../images/search.png) no-repeat;
+
+}
+
+.books{
+	width: 880px;
+	height: 600px;
+	background: pink;
+	float: right; 	
+}
