@@ -1,12 +1,11 @@
 @charset "UTF-8";
 @font-face{
 	font-family: 'STCAIYUN';
-	src:url('C:/Windows/Fonts/STCAIYUN.TTF');
+	src:url('../font/STCAIYUN.TTF');
 }
 body{
 	overflow: auto;
 	margin: 0 auto;
-	background: #F0F3EF;
 }
 
 .header{
@@ -68,23 +67,22 @@ body{
 
 .main{
 	width: 1080px;
-	height: 1000px;
 	margin: 0 auto;
 	text-align: center;
-	/*background: green;*/
+	background: #FFF;
 }
 .left{
 	width: 180px;
 	height: 600px;
-	background: #FFFFFF;
+	background: #F0F3EF;
 	float: left;
 	position: relative;
 	top:-33px;
 }
 .right{
 	width: 900px;
-	height: 600px;
 	float: left;
+	margin-bottom:80px;
 }
 
 .logo{
@@ -122,7 +120,7 @@ body{
 	width: 550px;
 	height: 35px;
 	/*background: blue;*/
-	margin: 20px auto;
+	margin: 10px auto 30px;
 }
 .form .content{
 	width: 490px;
@@ -131,18 +129,140 @@ body{
 	padding-left: 5px;
 }
 .form .submit{
+	position:relative;
 	width: 50px;
 	height: 35px;
-	margin-left: -5px;
+	top:-43px;
+	left:50px;
 	border:none;
 	cursor: pointer;
 	background: url(../images/search.png) no-repeat;
 
 }
 
+
 .books{
 	width: 880px;
-	height: 600px;
-	background: pink;
+	background: #FFF;
 	float: right; 	
+	margin-bottom:20px;
+}
+
+.books h3{
+	width: 880px;
+    height: 2px;
+    border-bottom: 1px solid #323232;
+    position: relative;
+    margin: 4px auto 8px;
+    text-align: center
+}
+.books h3 .title{
+	color: #323232;
+    font: 13px "Microsoft Yahei";
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    bottom: 8px;
+    padding: 0 12px;
+}
+
+.books div{
+	width: 216px;
+	height: 240px;
+	margin:1px;
+	border:1px solid #E6E6E6;
+	/*background: red;*/
+	float: left;
+}
+.pic{
+	display: block;
+	width: 160px;
+	height: 160px;
+	overflow: hidden;
+	margin: 15px auto 0;
+}
+.pic img{
+	width: 160px;
+	height: 160px;
+}
+.book_type{
+	text-align: center;
+	display: block;
+	width: 140px;
+	height: 14px;
+	margin: 7px auto 3px;
+	line-height: 14px;
+	font-size: 14px;
+	padding-left: 10px;
+	color: #646464;
+	text-align: left;
+}
+.book_name{
+	display: block;
+	width: 140px;
+	height: 15px;
+	overflow: hidden;
+	margin: 4px auto;
+	line-height: 15px;
+	font-size: 14px;
+	padding-left: 10px;
+	text-align: left;
+	color: #646464;
+}
+
+
+.book_author{
+	display: block;
+	width: 140px;
+	height: 15px;
+	margin: 4px auto;
+	line-height: 15px;
+	font-size: 14px;
+	padding-left: 10px;
+	text-align: left;
+	color: #969696;
+	overflow: hidden;
+}
+
+.myInfo{
+	width: 130px;
+	height: 145px;
+	background: #A1CFFE;
+	z-index: 1000;
+	position:absolute;
+	top: 125px;
+	right: 250px;
+	border-radius: 5px;
+	display:none;
+}
+
+.shortcut .image{
+	width: 90px;
+	height: 110px;
+	background:red;
+	margin: 5px auto;
+	background-image: url(../images/showImg.gif);
+	background-size: 90px 110px;
+}
+
+.shortcut .myInfo .name{
+	display:block;
+	width:130px;
+	height:15px;
+	right:0px;
+	line-height:15px;
+	color:#FFF;
+	font-size: 15px;
+	text-align: center;
+}
+
+.tip{
+	display:inline-block;
+	width:500px;
+	height:20px;
+	line-height:20px;
+	font-size:14px;
+	margin-top:5px;
+
 }
