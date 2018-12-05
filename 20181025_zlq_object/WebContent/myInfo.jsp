@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	我的个人信息
+	我的个人信息显示表
 </body>
 </html>
