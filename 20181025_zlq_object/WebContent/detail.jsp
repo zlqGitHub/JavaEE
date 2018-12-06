@@ -23,8 +23,8 @@
 			<div class="detail_con_right">
 				<div class="detail_con_right_top">
 					<div class="info_left">
-						<span>作者：${aBookList.getAuthor()}</span>
-						<span>出版社：武汉大学出版社</span>
+						<span>作者：${abookList[0].getAuthor()}</span>
+						<span>出版社：${abookList[0].getPublisher()}</span>
 						<span>出版时间：2018-12</span>
 						<span>定价：39.99</span>
 					</div>
@@ -32,20 +32,27 @@
 						<span>装帧：平装</span>
 						<span>开本：其他</span>
 						<span>纸张：其他</span>
-						<span>分类：哲学心理类</span>
+						<span>分类：${abookList[0].getType()}</span>
 					</div>
 				</div>
 
 				<div class="introduction">
-					<span>简介：本书以访谈录的形式记载了生活在另一个角落的人群（精神病患者、心理障碍者等边缘人）深刻、视角独特的所思所想，让人们可以了解到疯子抑或天才真正的内心世界。此书是国内第一本具有人文情怀的精神病患谈访录。内容涉及生理学、心理学、佛学、宗教、量子物理、符号学以及玛雅文明和预言等众多领域。本书以访谈录的形式记载了生活在另一个角落的人群（精神病患者、心理障碍者等边缘人）深刻、视角独特的所思所想，让人们可以了解到疯子抑或天才真正的内心世界。此书是国内第一本具有人文情怀的精神病患谈访录。内容涉及生理学、心理学、佛学、宗教、量子物理、符号学以及玛雅文明和预言等众多领域。</span>
+					<span>${abookList[0].getIntroduction()}</span>
 				</div>
 
 			</div>
 		</div>
 	</div>
- ${abookList[0].getBook_name()}  
-${aBookList[0].getPublisher()}
 
+	${abookList[0].getBook_id()}
+ ${abookList[0].getBook_name()}  
+
+${abookList[0].getAuthor()}
+${abookList[0].getPublisher()}
+${abookList[0].getIcon()}
+${abookList[0].getIntroduction()}
+${abookList[0].getType()}
+${abookList[0].getNum()}
 				
 </body>
 </html>
