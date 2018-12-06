@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" import="nuc.sw.dangdang.entity.*,java.util.*,com.opensymphony.xwork2.ActionContext" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="s"  uri="/struts-tags"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 <body>
 	<span class="logo">中北大学图书网</span>
 	<div class="detail">
-		<h3 class="detail_title">天才在左 疯子在右：国内第一本精神病人访谈手记</h3>
+		<h3 class="detail_title">${abookList[0].getBook_name()}</h3>
 		<div class="detail_con">
 			<div class="detail_con_left">
 				<img id="img" src="http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/0/7cca/7ccae78ef705ac36c5f0a755ec3aec79_0_0_0_0.jpg" style="width: 160px;height: 212px; margin-left: 20px;display: block;cursor: pointer;">
@@ -24,7 +23,7 @@
 			<div class="detail_con_right">
 				<div class="detail_con_right_top">
 					<div class="info_left">
-						<span>作者：zlq</span>
+						<span>作者：${aBookList.getAuthor()}</span>
 						<span>出版社：武汉大学出版社</span>
 						<span>出版时间：2018-12</span>
 						<span>定价：39.99</span>
@@ -43,8 +42,10 @@
 
 			</div>
 		</div>
-
 	</div>
-	
+ ${abookList[0].getBook_name()}  
+${aBookList[0].getPublisher()}
+
+				
 </body>
 </html>
