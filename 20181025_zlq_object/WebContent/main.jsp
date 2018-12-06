@@ -30,8 +30,8 @@
 		</div>
 	</div>
 
-	<div class="main">
-		<div class="left">
+	<div class="main" id="main">
+		<div class="left" id="left">
 			<div class="logo">
 				<img src="./images/library.gif" width="130px" height="130px" style="border-radius: 50%;margin: 25px;">
 			</div>
@@ -75,7 +75,7 @@
 
 		</div>
 	
-		<div class="right">
+		<div class="right" id="right">
 			<div class="form">
 				<table>
 					<tr>
@@ -96,14 +96,14 @@
 				
 				<s:iterator value="bookList" var="b">
 					<div>
-						<a href="#" class="pic" target="_blank" title="极简情绪控制法">
+						<a href="BookIdSelectAction?id=${b.getBook_id()}" class="pic" target="_blank">
 							<img src="${b.getIcon()}">
 						</a>
 						<p class="book_type">
 							<span class="type_b">${b.getType()}</span>
 						</p>
 						<p class="book_name">
-							<span class="type_n">${b.getBook_name()}</span>
+							<a href="BookIdSelectAction?id=${b.getBook_id()}"><span class="type_n">${b.getBook_name()}</span></a>
 						</p>
 						<p class="book_author">${b.getAuthor()}</p>
 					</div>
@@ -116,9 +116,16 @@
 
 	</div>
 	
+	<div class="footer">
+		<s:text name="">© 2018-2020 ZlqStudy.com 中北大学文澜苑田园实验室 版权所有</s:text>
+	</div>
 	
-<!--	${list[0].getIcon()}     -->
-<!-- 	${bookList[0]}           -->
+	
+<!-- 
+	${list[0].getIcon()}   
+	${bookList[0]}   
+ -->	       
+
 	<script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>
