@@ -14,11 +14,11 @@
 		<h3 class="detail_title">${abookList[0].getBook_name()}</h3>
 		<div class="detail_con">
 			<div class="detail_con_left">
-				<img id="img" src="http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/0/7cca/7ccae78ef705ac36c5f0a755ec3aec79_0_0_0_0.jpg" style="width: 160px;height: 212px; margin-left: 20px;display: block;cursor: pointer;">
+				<img id="img" src="${abookList[0].getIcon()}" style="width: 160px;height: 212px; margin-left: 20px;display: block;cursor: pointer;">
 				<a href="#">借阅</a>
 			</div>
 			<div id="img2" class="pic">
-				<img src="http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/0/7cca/7ccae78ef705ac36c5f0a755ec3aec79_0_0_0_0.jpg" style="width: 240px;height: 318px;cursor: pointer;">
+				<img src="${abookList[0].getIcon()}" style="width: 240px;height: 318px;cursor: pointer;">
 			</div>
 			<div class="detail_con_right">
 				<div class="detail_con_right_top">
@@ -43,16 +43,6 @@
 			</div>
 		</div>
 	</div>
-
-	${abookList[0].getBook_id()}
- ${abookList[0].getBook_name()}  
-
-${abookList[0].getAuthor()}
-${abookList[0].getPublisher()}
-${abookList[0].getIcon()}
-${abookList[0].getIntroduction()}
-${abookList[0].getType()}
-${abookList[0].getNum()}
 				
 </body>
 </html>
