@@ -59,13 +59,20 @@
 }
 .info_left span{
 	display: block;
-	margin: 0 0 5px 10px;
+	width:243px;
+	height:19px;
+	margin: 0 0 5px 30px;
+	overflow: hidden;
 	color: #666666;
 	font-size: 14px;
+	overflow: hidden;
 }
 .info_right span{
 	display: block;
-	margin: 0 0 5px 30px;
+	width:243px;
+	height:19px;
+	overflow: hidden;
+	margin: 0 0 5px 35px;
 	color: #666666;
 	font-size: 14px;
 }
