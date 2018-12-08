@@ -277,3 +277,41 @@ body{
 	float:right;
 	padding-top:10px;	
 }
+.method{
+	width: 260px;
+	height: 140px;
+	border-radius:5px;
+	background:#666;
+	color:#FFF;
+	position: absolute;
+	top:260px;
+	left:540px;
+	text-align: center;
+}
+.method span{
+	display:block;
+	margin-top:5px;
+}
+.method ul{
+	list-style: none;
+}
+.method .confim{
+	height:50px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top:1px solid #eee;
+	position:relative;
+	bottom:-27px;
+	line-height: 50px;
+	font-size: 20px;
+	letter-spacing: 5px;
+}
+.method .confim a{
+	text-decoration: none;
+	color:#51C332;
+}
+
+
+
+
+
