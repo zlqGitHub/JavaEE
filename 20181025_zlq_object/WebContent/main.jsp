@@ -15,7 +15,7 @@
 	</div>
 	<div class="shortcut">
 		<s:if test="(#session.username) != '' ? 1 : 0">
-			<span>欢迎&nbsp;<a id="myInfo" class="a0" title="我的信息" href="myInfo.jsp">[<%=ActionContext.getContext().getSession().get("username") %>]</a>&nbsp;登录</span>
+			<span>欢迎&nbsp;<a id="myInfo" class="a0" title="我的信息" href="MyInfoAction?userId='${userId}'">[<%=ActionContext.getContext().getSession().get("username") %>]</a>&nbsp;登录</span>
 		</s:if>
 		<s:else>
 			<span><a class="a0" href="login.jsp">未登录</a></span>
@@ -103,7 +103,7 @@
 							<span class="type_b">${b.getType()}</span>
 						</p>
 						<p class="book_name">
-							<a href="BookIdSelectAction?id=${b.getBook_id()}"><span class="type_n">${b.getBook_name()}</span></a>
+							<a href="BookIdSelectAction?id=${b.getBook_id()}" target="_blank"><span class="type_n">${b.getBook_name()}</span></a>
 						</p>
 						<p class="book_author">${b.getAuthor()}</p>
 					</div>
@@ -120,6 +120,17 @@
 		<s:text name="">© 2018-2020 ZlqStudy.com 中北大学文澜苑田园实验室 版权所有</s:text>
 	</div>
 	
+	<s:if test="tip">
+		<div class="method">
+			<div>
+				<span>提示</span><br>
+				"${bookname}"${error}
+			</div>
+			<div class="confim">
+				<a href="TypeSelectAction?type='全部'">确定</a>
+			</div>
+		</div>
+	</s:if>
 	
 <!-- 
 	${list[0].getIcon()}   
