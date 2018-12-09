@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+body{
+	background:#07236d;
+}
+.login-box{
+	border: 5px solid #07236d;
+    background: url(../images/0.jpg) #07236d top center no-repeat;
+    width: 800px;
+    height: 597px;
+    margin: 10px auto 0 auto;
+    padding: 0 30px;	
+}
+.login-main{
+	height: 260px;
+    margin-top: 210px;
+}
+form{
+	margin: 0;
+    padding: 0;
+}
+input{
+	margin-bottom:8px;
+	position: relative;
+    top:57px;
+    right:-300px;
+}
+.input1{
+	width:50px;
+	position: relative;
+    top:27px;
+}
+.input2{
+	width:70px;
+	height:22px;
+	line-height:22px;
+	text-align: center;
+	position: relative;
+    top:27px;
+    letter-spacing: 2px;
+}
+.submit{
+	background: url(../images/login-btn.png) no-repeat;
+	width: 158px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top:103px;
+    right:-175px;
+}
+.img{
+	position: relative;
+	top:32.5px;
+	left:300px;
+}
+
+
