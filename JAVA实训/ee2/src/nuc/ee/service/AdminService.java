@@ -10,9 +10,9 @@ public class AdminService {
 	AdminDao ad = new AdminDao();
 	List<Admin> adList = new ArrayList<Admin>();
 	
-	public List<Admin> get_admin() {
-		adList = ad.select_admin();
-		return adList;
+	public int get_admin(String name,String pass) {
+		int i = ad.select_admin(name,pass);
+		return i;
 	}
 	
 

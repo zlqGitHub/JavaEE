@@ -18,6 +18,8 @@ body{
 form{
 	margin: 0;
     padding: 0;
+    position: relative;
+    top:-18px;
 }
 input{
 	padding-left:2px;
@@ -56,6 +58,20 @@ input{
 	position: relative;
 	top:32.5px;
 	left:300px;
+}
+.errorMessage li{
+	list-style:none;
+	height:0;
+}
+.errorMessage li span{
+	list-style:none;
+	color:red;
+	font-size:14px;
+	line-height:15px;
+	display:inline-block;
+	position: relative;
+	top:53px;
+	left:442px;
 }
 
 

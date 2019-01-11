@@ -1,33 +1,30 @@
 package nuc.ee.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.*;
-
-import nuc.ee.model.Admin;
 import nuc.ee.util.Conn;
 
 public class AdminDao {
 	
-	public List<Admin> select_admin(){
+	//判断管理是否能登录
+	public int select_admin(String name,String pass){
+		int i = 0;
 		ResultSet rs = null;
-		List<Admin> adList = new ArrayList<Admin>();
 		
 		try {
 			Conn dbc = new Conn();
 			Connection conn = dbc.conn();
 			PreparedStatement pst =null;
-			String books_select = "select * from admin";
+			String books_select = "select * from admin where username = ? and password = ?";
 			pst = conn.prepareStatement(books_select);
+			pst.setString(1, name);
+			pst.setString(2, pass);
 			rs = pst.executeQuery();
 			
-			while(rs.next()) {
-				Admin ad = new Admin();
-				ad.setId(rs.getInt(1));
-				ad.setAdmin(rs.getString(2));
-				ad.setPass(rs.getString(3));
-				adList.add(ad);
+			if(rs.next()) {
+				i = 1;
 			}
 			
 		}
@@ -35,7 +32,7 @@ public class AdminDao {
 			e.printStackTrace();
 		}
 		
-		return adList;
+		return i;
 	}
 
 }

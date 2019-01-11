@@ -24,12 +24,20 @@ public class AdminLoginAction extends ActionSupport implements ModelDriven<Admin
 	}
 
 	public String execute() {
-//		System.out.println(ad.getAdmin()+ad.getPass()+ad.getType());
+		System.out.println(ad.getAdmin()+ad.getPass()+ad.getType());
 		
-		adList = as.get_admin();
-		System.out.println(adList);
+		int i = as.get_admin(ad.getAdmin(),ad.getPass());
 		
-		return "teacher";
+		if(i == 1) {
+			if(ad.getType().equals("学校")) {
+				return "teacher";
+			}
+			else {
+				return "company";
+			}
+		}
+		this.addFieldError("error", "用户名或密码错误");
+		return "loginFail";
 	}
 
 	@Override

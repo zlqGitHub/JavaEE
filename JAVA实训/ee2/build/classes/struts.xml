@@ -9,7 +9,7 @@
     	<action name="AdminLoginAction" class="nuc.ee.action.AdminLoginAction">
 			<result name="teacher">/admin/teacher.jsp</result>
 			<result name="company">/admin/company.jsp</result>
-			<result name="fail">/admin/index.jsp</result>
+			<result name="loginFail">/admin/index.jsp</result>
 		</action>
     	<action name="LoginAction" class="nuc.ee.action.LoginAction" method="LoginMethod">
 			<result name="success">/main.jsp</result>

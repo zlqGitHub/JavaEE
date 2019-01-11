@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	我是学校
+	
 </body>	
 </html>
