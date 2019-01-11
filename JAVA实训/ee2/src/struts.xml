@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+    <package name="hello" namespace="/" extends="struts-default">
+    	<action name="AdminLoginAction" class="nuc.ee.action.AdminLoginAction">
+			<result name="teacher">/admin/teacher.jsp</result>
+			<result name="company">/admin/company.jsp</result>
+			<result name="fail">/admin/index.jsp</result>
+		</action>
+    	<action name="LoginAction" class="nuc.ee.action.LoginAction" method="LoginMethod">
+			<result name="success">/main.jsp</result>
+		</action>
+		<action name="intoen" class="nuc.ee.action.EnAction" method="inItMethod">
+			<result name="success">
+				/showen.jsp
+			</result>
+		</action>
+		<action name="deleteen" class="nuc.ee.action.EnAction" method="deleteMethod">
+			<result name="success" type="chain">
+				intoen
+			</result>
+		</action>
+		<action name="adden" class="nuc.ee.action.EnAction" method="addMethod">
+			<result name="success" type="chain">
+				intoen
+			</result>
+		</action>
+		<action name="updateen1" class="nuc.ee.action.EnAction" method="update1Method">
+			<result name="success" type="chain">
+				intoen
+			</result>
+		</action>
+		<action name="updateen2" class="nuc.ee.action.EnAction" method="update2Method">
+			<result name="success" type="chain">
+				intoen
+			</result>
+		</action>
+	</package>
+</struts>
