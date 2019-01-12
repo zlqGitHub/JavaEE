@@ -1,20 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" import="com.opensymphony.xwork2.ActionContext" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="s"  uri="/struts-tags"%>
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>在线报名</title>
+	<link rel="icon" type="image/x-icon" href="./images/library3.png">
+	<link rel="stylesheet" type="text/css" href="./css/regist.css">
 </head>
 <body>
-    <h1>我要报名</h1>
-    <script>
+	<div class="header">
+		<img src="./images/logo_school.png">
+		<span>在线报名</span>
+	</div>
+	<div class="main_bg">
+		
+	</div>
+	
+	<script>
         sessionStorage.removeItem("ofHeight");
         sessionStorage.setItem("ofHeight",document.body.offsetHeight);
         console.log(document.body.offsetHeight);
     </script>
+	
 </body>
 </html>

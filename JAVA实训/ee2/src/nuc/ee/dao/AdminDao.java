@@ -60,22 +60,31 @@ public class AdminDao {
 				c.setIntroduce(rs.getString(3));
 				c.setDetails(rs.getString(4));
 				c.setImg(rs.getString(5));
+				c.setStatus(rs.getString(6));
 				csList.add(c);
 			}
 			
+			//去掉关闭的课程
 			for(int i=0;i<csList.size();i++) {
+				if(csList.get(i).getStatus().equals("关闭")) {
+					csList.remove(i);	
+				}
+			}
+			
+			
+			for(int i=0;i<csList.size();i++) {
+				
 				for(int j=i+1;j<csList.size();j++) {
-					
-					System.out.println("j=>"+csList.get(j).getTd());
 					if(csList.get(i).getTd().equals(csList.get(j).getTd())) {
 						csList.remove(j);
 						System.out.println("a");
 						j--;
 					}
+					
 				}
+				
 			}
-			System.out.println(csList);
-			
+
 		}
 		catch(Exception e) {
 			e.printStackTrace();

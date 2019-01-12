@@ -35,10 +35,10 @@
                 </div>
                 <ul class="navBarUl" id="navBarUlId">
                     <li><a href="#" style="color: #EF6762">网站首页</a></li>
-                    <li><a href="company.jsp" target="frame">公司概况</a></li>
-                    <li><a href="teacher.jsp" target="frame">师资力量</a></li>
-                    <li><a href="signUp.jsp" target="frame">在线报名</a></li>
-                    <li><a href="about.jsp" target="frame">关于我们</a></li>
+                    <li><a href="company.jsp">公司概况</a></li>
+                    <li><a href="teacher.jsp">师资力量</a></li>
+                    <li><a href="signUp.jsp">在线报名</a></li>
+                    <li><a href="about.jsp">关于我们</a></li>
                 </ul>
                 
             </div>
@@ -150,7 +150,6 @@
 
     </div>
 
-    <iframe class="iframe" frameborder="0" id="iframe" scrolling="no" name="frame"></iframe>
 
     <div class="buttom">
         <img class="img1" src="./imgs/code.jpg" width="180px">

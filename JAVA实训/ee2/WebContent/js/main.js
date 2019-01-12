@@ -5,9 +5,6 @@ window.onload = function () {
     var mainContent = document.getElementById('mainContent');  //获取首页内容的div
     var mainH = mainContent.offsetHeight;
 
-    var iframe = document.getElementById('iframe');   //获取iframe
-
-    var Height; //定义一个变量保存页面的高度
 
     //为选项卡li元素绑定响应函数
     for(var i=0;i<aLi.length;i++) {
@@ -32,16 +29,14 @@ window.onload = function () {
             //设置当前的标题li元素激活
             if(this.index == 0){
                 mainContent.style.display = "block";
-                iframe.style.display = "none";
+               
             }
             else{
                 mainContent.style.display = "none";
-                iframe.style.display = "block";
-                setHeight();
             }
             this.firstChild.style.color = "#EF6762";
             this.tip = 0;
-            _click(this);
+
         });
     }
 

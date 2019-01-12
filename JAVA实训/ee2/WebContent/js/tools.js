@@ -111,9 +111,6 @@ function  _click(obj) {
     timerH = setTimeout(function () {
         _click(obj);
     },0);
-    setTimeout(function () {
-        clearTimeout(timerH);
-    },150)
 }
 
 //设置iframe高度
