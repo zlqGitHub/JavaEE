@@ -41,10 +41,8 @@ public class AdminDao {
 	}
 	
 	//更新课程信息
-	@SuppressWarnings("unlikely-arg-type")
 	public List<Course> update_course(){
 		List<Course> csList = new ArrayList<Course>();
-		List<Course> csList2 = new ArrayList<Course>();
 		ResultSet rs = null;
 		
 		try {
@@ -65,15 +63,50 @@ public class AdminDao {
 				csList.add(c);
 			}
 			
-			
 			for(int i=0;i<csList.size();i++) {
 				for(int j=i+1;j<csList.size();j++) {
-					if(csList.get(i).getTd().equals(csList.get(j).getId())) {
+					
+					System.out.println("j=>"+csList.get(j).getTd());
+					if(csList.get(i).getTd().equals(csList.get(j).getTd())) {
 						csList.remove(j);
+						System.out.println("a");
 						j--;
 					}
 				}
-				csList2.add(csList.get(i));
+			}
+			System.out.println(csList);
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return csList;
+	}
+	
+	
+	//将更新后的数据写入course表中
+	public int insert_course(List<Course> csList){
+		int rs = 0;
+		
+		try {
+			Conn dbc = new Conn();
+			Connection conn = dbc.conn();
+			PreparedStatement pst =null;
+			//首先将库里的数据删除
+			String delete_course = "delete from course";
+			pst = conn.prepareStatement(delete_course);
+			rs = pst.executeUpdate();
+			//将新数据写入表中
+			for(int i=0;i<csList.size();i++) {
+				String insert_course = "insert into course(td,introduce,details,img) value(?,?,?,?)";
+				pst = conn.prepareStatement(insert_course);
+				pst.setString(1, csList.get(i).getTd());
+				pst.setString(2, csList.get(i).getIntroduce());
+				pst.setString(3, csList.get(i).getDetails());
+				pst.setString(4, csList.get(i).getImg());
+				
+				rs = pst.executeUpdate();
 			}
 			
 		}
@@ -81,8 +114,9 @@ public class AdminDao {
 			e.printStackTrace();
 		}
 		
-		return csList2;
+		return rs;
 	}
+	
 	
 	
 

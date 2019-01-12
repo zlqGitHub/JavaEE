@@ -30,7 +30,6 @@
 </style>
 </head>
 <body>
-	${csList}
 	<span style="font-size:18px;color:#00AE85;">学院开课信息：</span><br>
 	<a href="UpdateCourseAction">更新课程>></a>
 	<table border=1>

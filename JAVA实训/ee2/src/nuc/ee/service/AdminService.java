@@ -21,8 +21,10 @@ public class AdminService {
 	public List<Course> uptate_course(){
 		List<Course> csList = new ArrayList<Course>();
 		csList = ad.update_course();
+		ad.insert_course(csList);
 		return csList;
 	}
+	
 	
 	
 	

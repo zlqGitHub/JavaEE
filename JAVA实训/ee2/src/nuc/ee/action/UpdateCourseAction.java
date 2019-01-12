@@ -28,7 +28,8 @@ public class UpdateCourseAction extends ActionSupport implements ModelDriven<Cou
 	
 	public String execute() {
 		csList = as.uptate_course();
-		System.out.println(csList);
+//		System.out.println("aa"+csList);
+		
 		return "success";
 	}	
 
