@@ -20,24 +20,7 @@ window.onload = function () {
                 this.firstChild.style.color = "black";
             }
         }
-        bind(aLi[i],"click",function () {
-            for(var j=0;j<aLi.length;j++) {
-                //将所有的标题li元素全部不激活
-                aLi[j].firstChild.style.color = "black";
-                aLi[j].tip = 1;
-            }
-            //设置当前的标题li元素激活
-            if(this.index == 0){
-                mainContent.style.display = "block";
-               
-            }
-            else{
-                mainContent.style.display = "none";
-            }
-            this.firstChild.style.color = "#EF6762";
-            this.tip = 0;
-
-        });
+        
     }
 
     //为新闻资讯绑定事件
