@@ -6,6 +6,9 @@
 <struts>
 <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
     <package name="hello" namespace="/" extends="struts-default">
+    	<action name="UpdateCourseAction" class="nuc.ee.action.UpdateCourseAction">
+			<result name="success">/admin/teacher.jsp</result>
+		</action>
     	<action name="AdminLoginAction" class="nuc.ee.action.AdminLoginAction">
 			<result name="teacher">/admin/teacher.jsp</result>
 			<result name="company">/admin/company.jsp</result>

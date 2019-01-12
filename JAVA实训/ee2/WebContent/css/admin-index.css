@@ -19,21 +19,21 @@ form{
 	margin: 0;
     padding: 0;
     position: relative;
-    top:-18px;
+    top:55px;
+    left:300px;
+    float:left;
 }
 input{
 	padding-left:2px;
 	margin-bottom:8px;
-	position: relative;
-    top:57px;
-    right:-300px;
     letter-spacing: 1px;
 }
 .select{
 	width:80px;
-	position: relative;
-    top:30px;
-    left:300px;
+	position: absolute;
+    top:60px;
+    left:0px;
+	
 }
 .input2{
 	width:70px;
@@ -50,9 +50,9 @@ input{
     height: 45px;
     border: none;
     cursor: pointer;
-    position: relative;
-    top:103px;
-    right:-225px;
+    position: absolute;
+    top:108px;
+    right:0px;
 }
 .img{
 	position: relative;
@@ -70,8 +70,8 @@ input{
 	line-height:15px;
 	display:inline-block;
 	position: relative;
-	top:53px;
-	left:442px;
+	top:285px;
+	left:695px;
 }
 
 

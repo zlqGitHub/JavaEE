@@ -9,12 +9,12 @@
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="expires" content="0" />
 	<title>管理系统</title>
-	
+	<link rel="icon" type="image/x-icon" href="../images/admin.png">
 </head>
 <body>
+<s:fielderror cssStyle="color:red" />
 	<div class="login-box">
 		<div class="login-main">
-		<s:fielderror cssStyle="color:red" />
 			<form action="AdminLoginAction" method="post" class="form">
 		        <input type="text" name="admin" value=""><br>
 		        <input type="password" name="pass" value=""><br>
