@@ -1,4 +1,4 @@
-<%@ page language="java" import="nuc.ee.model.Course" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" import="nuc.ee.model.Course,java.util.*,com.opensymphony.xwork2.ActionContext" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="s"  uri="/struts-tags"%>
 <!doctype html>
 <html lang="en">
@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/tools.js"></script>
     <script src="./js/main.js"></script>
-    <script>
-        //iframe自适应高度
-
-    </script>
 </head>
 <body>
     <div class="nav">
@@ -37,9 +33,15 @@
                     <li><a href="#" style="color: #EF6762">网站首页</a></li>
                     <li><a href="company.jsp">公司概况</a></li>
                     <li><a href="teacher.jsp">师资力量</a></li>
-                    <li><a href="signUp.jsp">在线报名</a></li>
+                    <li><a href="GignUpAction" target="_blank">在线报名</a></li>
                     <li><a href="about.jsp">关于我们</a></li>
                 </ul>
+                <s:if test="(#session.userid) != '' ? 1 : 0">
+					<span class="myInfo">欢迎，&nbsp;<a class="a0" title="我的信息" href="#">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
+				</s:if>
+				<s:else>
+					<span class="myInfo"><a class="a0" style="display:block;position:relative;left:35px;" href="login.jsp">未登录</a></span>
+				</s:else>
                 
             </div>
         </div>
@@ -74,33 +76,33 @@
                     <div class="firstbox">
                         <img src="./imgs/news.jpg" alt="">
                     </div>
-                    <p><a href="#">新闻资讯</a></p>
+                    <p><a href="javascript:;">新闻资讯</a></p>
                     <div class="lastbox">
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
+                        <a href="javascript:;">中国新闻网是知名的中文新闻网站...</a>
+                        <a href="javascript:;">中国新闻网是知名的中文新闻网站...</a>
+                        <a href="javascript:;">中国新闻网是知名的中文新闻网站...</a>
                     </div>
                 </div>
                 <div class="shadowbox" name="shadowbox">
                     <div class="firstdiv">
                         <img src="./imgs/meiti.jpg" alt="">
                     </div>
-                    <p><a href="#">媒体报告</a></p>
+                    <p><a href="javascript:;">媒体报告</a></p>
                     <div class="lastbox">
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
+                        <a href="javascript:;"> 中国互联网媒体报告是北京益派咨询...</a>
+                        <a href="javascript:;"> 中国互联网媒体报告是北京益派咨询...</a>
+                        <a href="javascript:;"> 中国互联网媒体报告是北京益派咨询...</a>
                     </div>
                 </div>
                 <div class="shadowbox" name="shadowbox">
                     <div class="firstdiv">
                         <img src="./imgs/company.jpg" alt="">
                     </div>
-                    <p><a href="#">公司公告</a></p>
+                    <p><a href="company.jsp">企业百科</a></p>
                     <div class="lastbox">
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
+                        <a href="company.jsp">ena企业是全国知名互联网公司之一...</a>
+                        <a href="company.jsp">enb企业是全国知名互联网公司之一...</a>
+                        <a href="company.jsp">enc公司是全国知名互联网公司之一...</a>
                     </div>
                 </div>
                 <div class="shadowbox" name="shadowbox">
@@ -109,9 +111,9 @@
                     </div>
                     <p><a href="#">学校动态</a></p>
                     <div class="lastbox">
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
-                        <a href="#">大数据在互联网行业是指一种现象...</a>
+                    	<a href="#">报名时间：2019.1.10-2019.1.19...</a>
+                        <a href="#">2019年软件学院各方向开课状态...</a>
+                        <a href="company.jsp">我校今年聘请企业培训机构有...</a>		
                     </div>
                 </div>
             </div>
@@ -120,13 +122,13 @@
             <div class="course">
                 <div class="course_header">
                     <span class="span1"></span>
-                    <div contianer_header_title>
+                    <div>
                         <span class="span2">CURRICULUM STRUCTURE</span>
                         <span class="span3">课程体系</span>
                         <span class="span4">我们提供针对性的课程体系</span>
                     </div>
                 </div>
-                <div class="course_main" style="height:${num}px">
+                <div class="course_main" style="height:${height}px">
                 	<s:iterator value="csList" var="c">
                 		
 	                    <div class="shadowbox2" name="shadowbox2">

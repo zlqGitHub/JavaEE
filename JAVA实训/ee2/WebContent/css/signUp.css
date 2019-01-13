@@ -66,7 +66,7 @@ body{
     padding-left: 10px;
     border-radius: 5px;
 }
-.form .submit{
+.form .submit,.submit2{
     width: 340px;
     height: 45px;
     display: block;
@@ -81,6 +81,12 @@ body{
 }
 .form .submit:hover{
     background-color: #007EFF;
+}
+.form .submit2{
+	width:213px;
+	background:#999;
+	line-height: 45px;
+	padding-left:127px;
 }
 .info{
     width: 350px;

@@ -4,23 +4,51 @@ import java.util.ArrayList;
 
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
+import nuc.ee.model.Company;
 import nuc.ee.model.Course;
+import nuc.ee.model.User;
+import nuc.ee.model.UserLogin;
 import nuc.ee.service.CourseService;
+import nuc.ee.service.UserService;
 
 
 @SuppressWarnings("serial")
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport implements ModelDriven<UserLogin>{
 	private Course course = new Course();
-	int num;
-
-	public int getNum() {
-		return num;
+	User user = new User();
+	UserLogin u = new UserLogin();
+	UserService us = new UserService();
+	List<Company> comList = new ArrayList<Company>();   //保存公司信息 
+	public int userid;
+	public String username;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	int height;
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 
 	public Course getCourse() {
@@ -43,12 +71,40 @@ public class LoginAction extends ActionSupport{
 		this.csList = csList;
 	}
 
+	public List<Company> getComList() {
+		return comList;
+	}
+
+	public void setComList(List<Company> comList) {
+		this.comList = comList;
+	}
+
 	public String LoginMethod() {
-		csList = cs.get_course();
-		num = (int) ((Math.ceil((csList.size()/2.0))*187));
-//		System.out.println(num);
-		
-		return "success";
+		user = us.login_user(u);   
+		if(user != null) {
+			ActionContext.getContext().getSession().put("userid", user.getUserid());
+			ActionContext.getContext().getSession().put("username", user.getUsername());
+			userid = user.getUserid();
+			username = user.getUsername();
+			csList = cs.get_course();
+			comList = us.get_company();
+			ActionContext.getContext().getSession().put("comList", comList);
+			height = (int) ((Math.ceil((csList.size()/2.0))*187));
+//			System.out.println(num);
+			
+			return "success";
+			
+		}
+		else {
+			this.addFieldError("error", "用户名或密码错误");
+			return "loginFail";
+		}
+	}
+
+	@Override
+	public UserLogin getModel() {
+		// TODO Auto-generated method stub
+		return u;
 	}
 	
 }

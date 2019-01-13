@@ -21,15 +21,14 @@
 			<div class="regist_right">
 				<s:property value="error"/>
 				<s:form action="RegistAction" name="form2" method="post" enctype="multipart/form-data">
-					<s:textfield label="学号" name="student_no" />
-					<s:textfield label="姓名" name="name" />
+					<s:textfield label="学号" name="userid" />
+					<s:textfield label="姓名" name="username" />
 					<s:password label="密码" name="password" />
 					<s:password label="确认密码" name="rePassword" />
 					<s:radio cssClass="sex" label="性别" name="sex" list="{'男','女'}"/>
 					<s:textfield label="年龄" name="age" />
 					<s:textfield label="联系方式" name="telphone" />
 					<s:select label="院系" name="department" list="{'软件学院','艺术学院','仪器与电子学院','人文院','等等'}" cssStyle="display: inline-block;height:22px;width:157px;border:1px solid #E7F1FD;"/>
-					<s:file label="头像" name="upload" cssStyle="border:none;"/>
 					<s:submit name="regist" value="立即注册" cssClass="right" cssStyle="display: inline-block;background:#65B41A;width:157px;height:39px;color:#FFF;position: relative;left:-55px;cursor: pointer;"/>
 				</s:form>
 				<div class="back">

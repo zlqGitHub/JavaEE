@@ -6,6 +6,17 @@
 <struts>
 <constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
     <package name="hello" namespace="/" extends="struts-default">
+    	<action name="GignUpAction2" class="nuc.ee.action.GignUpAction2">
+			<result name="success">/main.jsp</result>
+		</action>
+    	<action name="GignUpAction" class="nuc.ee.action.GignUpAction">
+			<result name="success">/signUp.jsp</result>
+		</action>
+    	<action name="RegistAction" class="nuc.ee.action.RegistAction" method="RegistMethod">
+			<result name="registRepeat">/regist.jsp</result>
+			<result name="registOK">/regist.jsp</result>
+			<result name="input">/regist.jsp</result>
+		</action>
     	<action name="UpdateCourseAction" class="nuc.ee.action.UpdateCourseAction">
 			<result name="success">/admin/teacher.jsp</result>
 		</action>
@@ -16,6 +27,7 @@
 		</action>
     	<action name="LoginAction" class="nuc.ee.action.LoginAction" method="LoginMethod">
 			<result name="success">/main.jsp</result>
+			<result name="loginFail">/login.jsp</result>
 		</action>
 		<action name="intoen" class="nuc.ee.action.EnAction" method="inItMethod">
 			<result name="success">

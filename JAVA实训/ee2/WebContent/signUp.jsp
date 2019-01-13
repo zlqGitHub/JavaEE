@@ -17,19 +17,23 @@
         <div class="main">
             <div class="myInfo">
                 <span class="span1">填写表单</span>
-                <form action="GignUpAction" class="form">
-                	<span class="tip">注意>>你还有3提交报名的机会！！！</span>
-                    <input class="input" type="text" placeholder="学号" name="userid"><br>
-                    <input class="input" type="text" placeholder="姓名" name="username"><br>
+                <form action="GignUpAction2" class="form" method="post">
+                	<span class="tip">注意>>你还有 ${num} 提交报名的机会！！！</span>
+                    <input class="input" type="text" name="userid" value="${userid}"><br>
+                    <input class="input" type="text" name="username" value="${username}"><br>
                     <select class="input" name="td" class="select">
-                        <option value="Java技术">Java技术</option>
-                        <option value="大数据技术">大数据技术</option>
-                        <option value="数据库技术">数据库技术</option>
-                        <option value="前端">前端</option>
-
+                    	<s:iterator value="csList" var="c">
+                    		<option value="${c.getTd()}">${c.getTd()}</option>
+                    	</s:iterator>
                     </select>
 
-                    <input type="submit" class="submit" value="提交报名">
+                    <s:if test=" (#session.num != 0)">
+                    	<input type="submit" class="submit" value="提交报名">               
+                    </s:if>
+                    <s:else>
+                    	<input class="submit2" title="报名失效" value="提交报名">               
+                    </s:else>
+                    
 
                 </form>
 
