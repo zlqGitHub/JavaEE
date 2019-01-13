@@ -6,6 +6,7 @@ import java.util.List;
 import nuc.ee.dao.UserDao;
 import nuc.ee.model.Company;
 import nuc.ee.model.GignUp;
+import nuc.ee.model.Teacher;
 import nuc.ee.model.User;
 import nuc.ee.model.UserLogin;
 
@@ -48,7 +49,12 @@ public class UserService {
 		return comList;
 	}
 	
-	
+	//获取教师信息
+	public List<Teacher> get_teacher(){
+		List<Teacher> teaList = new ArrayList<Teacher>();
+		teaList = uDao.get_teacher();	
+		return teaList;
+	}
 	
 	
 

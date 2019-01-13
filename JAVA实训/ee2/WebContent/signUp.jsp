@@ -31,7 +31,7 @@
                     	<input type="submit" class="submit" value="提交报名">               
                     </s:if>
                     <s:else>
-                    	<input class="submit2" title="报名失效" value="提交报名">               
+                    	<input class="submit2" title="您的报名次数已达上限！" value="提交报名">               
                     </s:else>
                     
 

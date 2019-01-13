@@ -11,17 +11,31 @@
     <link rel="stylesheet" href="./css/teacher.css">
 </head>
 <body>
-<span class="title">企业单位教师信息：</span>
-<div class="line"></div>
-<div class="teacher">
-    <img src="https://images.metinfo.cn/mui258/upload/mui258/201808/1534749526.jpg" alt="">
-    <span class="teacherName">
-            <a href="javascript:;" title="查看ena企业官网">张利强老师</a>
-        </span>
-    <div class="introduce">
-        拥有多年项目管理和教学经验，精通HTML5、jQuery、Objective-C等多门语言，曾以项目经理、高级项目经理、团队技术负责人等身份，先后任职于多家大型互联网公司，上线了多个知名项目。主导并负责开发了中等学校通用信息服务平台等大型前端系统，以及在任职于中国最大保险电子商务平台公司期间，开发了聚米、慧择联盟等服务于500万用户的大型金融类项目。
-    </div>
-</div>
-
+	<span class="title">企业单位教师信息：</span>
+	<div class="line"></div>
+	 <s:iterator value="%{#session.teaList}" var="tea" status="st">
+    	<s:if test="#st.odd">
+			<div class="teacher">
+			    <img src="${tea.img}" alt="">
+			    <div class="introduce">
+			    	<span class="teacherName">
+			            <a href="javascript:;" title="查看ena企业官网">${tea.teachername }老师</a> (${tea.en}企业，从事<font color="red">${tea.td}</font>)
+			        </span>
+			        ${tea.introduce}
+			    </div>
+			</div>
+		</s:if>
+		<s:else>
+			<div class="teacher teacher2">
+			    <div class="introduce introduce2">
+			    	<span class="teacherName teacherName2">
+			            <a href="javascript:;" title="查看ena企业官网">${tea.teachername }老师</a> (${tea.en}企业，从事<font color="red">${tea.td}</font>)
+			        </span>
+			        ${tea.introduce}
+			    </div>
+			    <img src="${tea.img}" alt="">
+			</div>
+		</s:else>
+	</s:iterator>
 </body>
 </html>

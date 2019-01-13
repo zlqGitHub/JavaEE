@@ -52,3 +52,11 @@
     font-size: 15px;
     line-height: 30px;
 }
+.introduce2{
+	position:relative;
+    left:-500px;
+}
+.teacher2 img{
+	position:relative;
+	left:500px;
+}

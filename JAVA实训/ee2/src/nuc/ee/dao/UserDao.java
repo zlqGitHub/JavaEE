@@ -9,6 +9,7 @@ import java.util.*;
 
 import nuc.ee.model.Company;
 import nuc.ee.model.GignUp;
+import nuc.ee.model.Teacher;
 import nuc.ee.model.User;
 import nuc.ee.model.UserLogin;
 import nuc.ee.util.Conn;
@@ -198,6 +199,33 @@ public class UserDao {
 		
 		return comList;
 	}
+	
+	//用户登录成功后获取教师的信息
+		public List<Teacher> get_teacher(){
+			List<Teacher> teaList = new ArrayList<Teacher>();
+			ResultSet rs = null;
+			try {
+				Conn dbc = new Conn();   
+				Connection conn = dbc.conn();
+				PreparedStatement pst =null;
+				String select = "select * from teacher";
+				pst = conn.prepareStatement(select);
+				rs = pst.executeQuery();
+				while(rs.next()) {
+					Teacher tea = new Teacher();
+					tea.setTeachername(rs.getString(2));
+					tea.setTd(rs.getString(3));
+					tea.setIntroduce(rs.getString(4));
+					tea.setEn(rs.getString(5));
+					tea.setImg(rs.getString(6));
+					teaList.add(tea);
+				}
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}		
+			return teaList;
+		}
 
 
 }
