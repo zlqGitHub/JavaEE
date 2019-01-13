@@ -34,7 +34,7 @@
                     <li><a href="company.jsp">公司概况</a></li>
                     <li><a href="teacher.jsp">师资力量</a></li>
                     <li><a href="GignUpAction" target="_blank">在线报名</a></li>
-                    <li><a href="about.jsp">关于我们</a></li>
+                    <li><a href="http://ss.nuc.edu.cn/#tips" target="_blank">关于我们</a></li>
                 </ul>
                 <s:if test="(#session.userid) != '' ? 1 : 0">
 					<span class="myInfo">欢迎，&nbsp;<a class="a0" title="我的信息" href="#">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
@@ -109,10 +109,10 @@
                     <div class="firstdiv">
                         <img src="./imgs/school2.jpg" alt="">
                     </div>
-                    <p><a href="#">学校动态</a></p>
+                    <p><a href="school.jsp">学校动态</a></p>
                     <div class="lastbox">
-                    	<a href="#">报名时间：2019.1.10-2019.1.19...</a>
-                        <a href="#">2019年软件学院各方向开课状态...</a>
+                    	<a href="school.jsp">报名时间：2019.1.10-2019.1.19...</a>
+                        <a href="school.jsp">2019年软件学院各方向开课状态...</a>
                         <a href="company.jsp">我校今年聘请企业培训机构有...</a>		
                     </div>
                 </div>
@@ -135,7 +135,12 @@
 	                        <div class="firstdiv">
 	                            <img src="./imgs/tec1.png" alt="">
 	                        </div>
-	                        <p><a href="courseDetail.jsp?id=${c.getId()}">${c.getTd()}</a></p>
+	                        
+	                        
+	                   <!--    <p><a href="courseDetail.jsp?id=${c.getId()}">${c.getTd()}</a></p>  -->  
+	                        
+	                        
+	                        <p><a href="javascript:;">${c.getTd()}</a></p>
 	                        <div class="lastbox">
 	                            <span>${c.getIntroduce()}</span>
 	                        </div>

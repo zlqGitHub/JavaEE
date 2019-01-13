@@ -56,15 +56,26 @@ window.onload = function () {
     var weixin = document.getElementById("weixin");
     var timer;
     // console.log(weixin);
-    wx.onmouseover = weixin.onmouseover = function () {
+    wx.onmouseover = function () {
         clearTimeout(timer);
         timer = setTimeout(function () {
-            move.style.display = "block";
+        	weixin.style.display = "block";
+        },200)
+    } 
+    wx.onmouseout = function () {
+        timer = setTimeout(function () {
+        	weixin.style.display = "none";
+        },400)
+    }
+    weixin.onmouseover = function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+        	weixin.style.display = "block";
         },200)
     }
-    wx.onmouseout = weixin.onmouseout = function () {
+    weixin.onmouseout = function () {
         timer = setTimeout(function () {
-            move.style.display = "none";
+        	weixin.style.display = "none";
         },400)
     }
 }
