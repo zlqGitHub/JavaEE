@@ -12,8 +12,8 @@ public class AdminService {
 	List<Admin> adList = new ArrayList<Admin>();
 	
 	//µÇÂ¼
-	public int get_admin(String name,String pass) {
-		int i = ad.select_admin(name,pass);
+	public int get_admin(String name,String pass,String type) {
+		int i = ad.select_admin(name,pass,type);
 		return i;
 	}
 	

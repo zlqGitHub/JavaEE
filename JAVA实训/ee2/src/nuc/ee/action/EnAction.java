@@ -15,6 +15,14 @@ public class EnAction extends ActionSupport{
 	private String td;
 	private String state;
 	private List<En> enList;
+	private String introduce;	
+	
+	public String getIntroduce() {
+		return introduce;
+	}
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
 	public String getEn() {
 		return en;
 	}
@@ -39,8 +47,10 @@ public class EnAction extends ActionSupport{
 	public void setEnList(List<En> enList) {
 		this.enList = enList;
 	}
-	enService service = new enService();
-	public String inItMethod() {			//查询技术方向
+	EnService service = new EnService();
+	
+	//查询技术方向
+	public String inItMethod() {			
 		if(en != null&&!"".equals(en.trim())) {
 			if("ena".equals(en)) {
 				enList = service.inIt(en);
@@ -66,7 +76,9 @@ public class EnAction extends ActionSupport{
 		}
 		return SUCCESS;
 	}
-	public String deleteMethod() {			//删除技术方向
+	
+	//删除技术方向
+	public String deleteMethod() {			
 		String en = (String)ActionContext.getContext().getSession().get("en");
 		if("ena".equals(en)) {
 			service.DeleteEn(en,td);
@@ -79,20 +91,24 @@ public class EnAction extends ActionSupport{
 		}
 		return SUCCESS;
 	}
-	public String addMethod() {			//添加
+	
+	//添加技术方向
+	public String addMethod() {		
 		String en = (String)ActionContext.getContext().getSession().get("en");
 		if("ena".equals(en)) {
-			service.addEn(en,td, state);
+			service.addEn(en,td, state,introduce);
 		}
 		if("enb".equals(en)) {
-			service.addEn(en,td, state);
+			service.addEn(en,td, state,introduce);
 		}
 		if("enc".equals(en)) {
-			service.addEn(en,td, state);
+			service.addEn(en,td, state,introduce);
 		}
 		return SUCCESS;
 	}
-	public String update1Method() throws UnsupportedEncodingException {		//开放
+	
+	//开放技术方向
+	public String update1Method() throws UnsupportedEncodingException {		
 		String en = (String)ActionContext.getContext().getSession().get("en");
 		td = new String(td.getBytes("iso-8859-1"),"utf-8");
 		if("ena".equals(en)) {
@@ -105,8 +121,10 @@ public class EnAction extends ActionSupport{
 			service.update(en,td, "已开放");
 		}
 		return SUCCESS;
-	} 
-	public String update2Method() throws UnsupportedEncodingException {		//关闭
+	}  
+	
+	//关闭技术方向
+	public String update2Method() throws UnsupportedEncodingException {		
 		String en = (String)ActionContext.getContext().getSession().get("en");
 		td = new String(td.getBytes("iso-8859-1"),"utf-8");
 		if("ena".equals(en)) {

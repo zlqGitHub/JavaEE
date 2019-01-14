@@ -36,19 +36,15 @@
 		<tr class="tr1">
 			<td width="50px" align="center"> 编号</td>
 			<td width="130px" align="center"> 课程名称</td>
-			<td width="260px" align="center"> 简介</td>
-			<td width="400px" align="center"> 详情</td>
+			<td width="320px" align="center"> 简介</td>
 		</tr>
 		
 		<s:iterator value="csList" var="c" status="sbook">
 			<tr class="tr2" <s:if test="!#sbook.isOdd()">style="background-color:#1D82FE"</s:if>>
 				<td style="line-height:90px;" width="50px" align="center"><s:property value="#c.getId()"/></td>
 				<td style="line-height:90px;" width="130px" align="center"><s:property value="#c.getTd()"/></td>
-				<td width="260px"><s:property value="#c.getIntroduce()"/></td>
-				<td width="400px"><s:property value="#c.getDetails()"/></td>
-				
+				<td width="320px"><s:property value="#c.getIntroduce()"/></td>
 			</tr>
-			
 		</s:iterator>
 		
 	</table>

@@ -28,8 +28,6 @@ public class CourseDao {
 				c.setId(rs.getInt(1));
 				c.setTd(rs.getString(2));
 				c.setIntroduce(rs.getString(3));
-				c.setDetails(rs.getString(4));
-				c.setImg(rs.getString(5));
 				csList.add(c);
 			}
 			

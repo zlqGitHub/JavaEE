@@ -14,7 +14,7 @@ import nuc.ee.util.Conn;
 public class AdminDao {
 	
 	//判断管理是否能登录
-	public int select_admin(String name,String pass){
+	public int select_admin(String name,String pass,String type){
 		int i = 0;
 		ResultSet rs = null;
 		
@@ -22,10 +22,11 @@ public class AdminDao {
 			Conn dbc = new Conn();
 			Connection conn = dbc.conn();
 			PreparedStatement pst =null;
-			String books_select = "select * from admin where username = ? and password = ?";
+			String books_select = "select * from admin where username = ? and password = ? and type = ?";
 			pst = conn.prepareStatement(books_select);
 			pst.setString(1, name);
 			pst.setString(2, pass);
+			pst.setString(3, type);
 			rs = pst.executeQuery();
 			
 			if(rs.next()) {
@@ -58,15 +59,13 @@ public class AdminDao {
 				c.setId(rs.getInt(1));
 				c.setTd(rs.getString(2));
 				c.setIntroduce(rs.getString(3));
-				c.setDetails(rs.getString(4));
-				c.setImg(rs.getString(5));
-				c.setStatus(rs.getString(6));
+				c.setStatus(rs.getString(4));
 				csList.add(c);
 			}
 			
 			//去掉关闭的课程
 			for(int i=0;i<csList.size();i++) {
-				if(csList.get(i).getStatus().equals("关闭")) {
+				if(csList.get(i).getStatus().equals("未开放")) {
 					csList.remove(i);	
 				}
 			}
@@ -108,12 +107,10 @@ public class AdminDao {
 			rs = pst.executeUpdate();
 			//将新数据写入表中
 			for(int i=0;i<csList.size();i++) {
-				String insert_course = "insert into course(td,introduce,details,img) value(?,?,?,?)";
+				String insert_course = "insert into course(td,introduce) value(?,?)";
 				pst = conn.prepareStatement(insert_course);
 				pst.setString(1, csList.get(i).getTd());
 				pst.setString(2, csList.get(i).getIntroduce());
-				pst.setString(3, csList.get(i).getDetails());
-				pst.setString(4, csList.get(i).getImg());
 				
 				rs = pst.executeUpdate();
 			}

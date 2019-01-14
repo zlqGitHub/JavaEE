@@ -4,8 +4,6 @@ public class Course {
 	public int id;
 	public String td;
 	public String introduce;
-	public String details;
-	public String img;
 	public String status;
 	
 	public String getStatus() {
@@ -31,18 +29,6 @@ public class Course {
 	}
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
-	}
-	public String getDetails() {
-		return details;
-	}
-	public void setDetails(String details) {
-		this.details = details;
-	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 }

@@ -9,7 +9,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionContext;
 import nuc.ee.model.*;
 import nuc.ee.util.*;
-public class enDao {
+public class EnDao {
+	
 	public List<En> inIt(String en){			//查找方法
 		List<En> enlist=new ArrayList<En>();
 		ResultSet rs=null;
@@ -64,24 +65,25 @@ public class enDao {
 		}
 		return re;
 	}
-	public int addEn(String en,String td, String state) {	//添加方法
+	public int addEn(String en,String td, String state,String introduce) {	//添加方法
 		int re=0;
 		try{
 			Conn dbc=new Conn();
 			Connection conn=dbc.conn();
 			String sql_insert=null;
 			if("ena".equals(en)) {
-				sql_insert="insert into ena(td,state) values(?,?)";
+				sql_insert="insert into ena(td,state,introduce) values(?,?,?)";
 			}
 			if("enb".equals(en)) {
-				sql_insert="insert into enb(td,state) values(?,?)";
+				sql_insert="insert into enb(td,state,introduce) values(?,?,?)";
 			}
 			if("enc".equals(en)) {
-				sql_insert="insert into enc(td,state) values(?,?)";
+				sql_insert="insert into enc(td,state,introduce) values(?,?,?)";
 			}
 			PreparedStatement pst=conn.prepareStatement(sql_insert);
 			pst.setString(1, td);
 			pst.setString(2, state);
+			pst.setString(3, introduce);
 			re=pst.executeUpdate();
 			}
 		catch(Exception e){
@@ -113,6 +115,66 @@ public class enDao {
 			e.printStackTrace();
 		}
 		return rs;
+	}
+	
+	public boolean selectEnaByTd(String td){
+		boolean flag = false;
+		ResultSet rs = null;
+		String sql = "select * from ena where td=?";
+		try {
+			Conn dbc=new Conn();
+			Connection conn=dbc.conn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, td);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;		
+	}
+	
+	public boolean selectEnbByTd(String td){
+		boolean flag = false;
+		ResultSet rs = null;
+		String sql = "select * from enb where td=?";
+		try {
+			Conn dbc=new Conn();
+			Connection conn=dbc.conn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, td);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;		
+	}
+	
+	public boolean selectEncByTd(String td){
+		boolean flag = false;
+		ResultSet rs = null;
+		String sql = "select * from enc where td=?";
+		try {
+			Conn dbc=new Conn();
+			Connection conn=dbc.conn();
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, td);
+			rs = pst.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;		
 	}
 	
 }

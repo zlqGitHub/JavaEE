@@ -3,6 +3,7 @@ package nuc.ee.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -36,17 +37,26 @@ public class AdminLoginAction extends ActionSupport implements ModelDriven<Admin
 	}
 
 	public String execute() {
-//		System.out.println(ad.getAdmin()+ad.getPass()+ad.getType());
+		System.out.println(ad.getAdmin()+ad.getPass()+ad.getType());
 		
-		int i = as.get_admin(ad.getAdmin(),ad.getPass());
+		int i = as.get_admin(ad.getAdmin(),ad.getPass(),ad.getType());
 		
+		ActionContext.getContext().getSession().put("type", ad.getType());
+		ActionContext.getContext().getSession().put("admin", ad.getAdmin());
+	
 		if(i == 1) {
 			if(ad.getType().equals("学校")) {
 				csList = cs.get_course();
 				return "teacher";
 			}
-			else {
-				return "company";
+			else if(ad.getType().equals("ena")){
+				return "ena";
+			}
+			else if(ad.getType().equals("enb")){
+				return "enb";
+			}
+			else if(ad.getType().equals("enc")){
+				return "enc";
 			}
 		}
 		this.addFieldError("error", "用户名或密码错误");

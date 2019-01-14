@@ -112,7 +112,7 @@
                     <p><a href="school.jsp">学校动态</a></p>
                     <div class="lastbox">
                     	<a href="school.jsp">报名时间：2019.1.10-2019.1.19...</a>
-                        <a href="school.jsp">2019年软件学院专业方向课程...</a>
+                        <a href="school.jsp">中北大学2019年寒假放假通知...</a>
                         <a href="company.jsp">我校今年聘请企业培训机构有...</a>		
                     </div>
                 </div>

@@ -20,9 +20,9 @@
 		        <input type="password" name="pass" value=""><br>
 		        <select class="select" id="login" name="type">
 					<option value="学校">学校</option>
-					<option value="企业A">企业A</option>
-					<option value="企业B">企业B</option>
-					<option value="企业C">企业C</option>
+					<option value="ena">ena</option>
+					<option value="enb">enb</option>
+					<option value="enc">enc</option>
                 </select>
 		        
 		        <button type="submit" class="submit"></button>		     
