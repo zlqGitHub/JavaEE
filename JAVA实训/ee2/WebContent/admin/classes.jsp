@@ -19,15 +19,15 @@
 	<tr>
 		<th style="width:120px;">学号</th>
 		<th style="width:110px;">姓名</th>
-		<th style="width:80px;">企业名称</th>
+		<th style="width:120px;">企业名称</th>
 		<th style="width:160px;">所选技术方向</th>
 		<th style="width:90px;">班级</th>
 		<th style="width:110px;">任课教师</th>
 	</tr>
 	<s:iterator value="lists" var="list">
 	<tr>
-		<td><s:property value="#list.namelist.userid"/></td>
-		<td><s:property value="#list.namelist.username"/></td>
+		<td><s:property value="#list.userid"/></td>
+		<td><s:property value="#list.username"/></td>
 		<td><s:property value="#list.en"/></td>
 		<td><s:property value="#list.td"/></td>
 		<td><s:property value="#list.classname"/></td>

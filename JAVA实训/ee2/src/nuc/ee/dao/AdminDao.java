@@ -65,7 +65,7 @@ public class AdminDao {
 			
 			//去掉关闭的课程
 			for(int i=0;i<csList.size();i++) {
-				if(csList.get(i).getStatus().equals("未开放")) {
+				if("未开放".equals(csList.get(i).getStatus())) {
 					csList.remove(i);	
 				}
 			}

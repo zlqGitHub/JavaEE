@@ -26,6 +26,10 @@
 				<img src="images/icon-3.png" />
 				<a href="classesListAction" target="main">查看分班表</a>
 			</div>
+			<div onclick="pageClick(this)">
+				<img src="images/icon-3.png" />
+				<a href="teacher.jsp" target="main">学院开课信息</a>
+			</div>
 		</div>
 	</div>
 

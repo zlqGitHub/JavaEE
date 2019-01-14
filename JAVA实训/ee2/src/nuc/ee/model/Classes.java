@@ -2,16 +2,17 @@ package nuc.ee.model;
 
 public class Classes {
 	private int userid;
-	private NameList namelist;
+	private String username;
 	private String en;
 	private String td;
 	private String classname;
 	private String teachername;
-	public NameList getNamelist() {
-		return namelist;
+	
+	public String getUsername() {
+		return username;
 	}
-	public void setNamelist(NameList namelist) {
-		this.namelist = namelist;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public int getUserid() {
 		return userid;

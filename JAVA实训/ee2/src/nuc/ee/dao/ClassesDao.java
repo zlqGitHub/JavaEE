@@ -27,7 +27,7 @@ public class ClassesDao {
 				record.setTd(rs.getString("td"));
 				record.setUserid(rs.getInt("userid"));
 				record.setTeachername(rs.getString("teachername"));
-				record.setNamelist(this.selectNameListByUserid(record.getUserid()));				
+				record.setUsername(rs.getString("username"));				
 				list.add(record);			    		    			    						    
 			}
 			
@@ -38,38 +38,37 @@ public class ClassesDao {
 		return list;
 	}
 	
-	public NameList selectNameListByUserid(int userid) {
-		NameList record = new NameList();
+	public String getUserNameById(int userid) {
 		ResultSet rs = null;
 		String sql = "select * from namelist where userid=?";
+		String str = null;
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, userid);
 			rs = pst.executeQuery();
-			if(rs.next()) {				
-				record.setChange(rs.getInt("number"));;
-				record.setTd(rs.getString("td"));
-				record.setUserid(rs.getInt("userid"));
-				record.setUsername(rs.getString("username"));
-				}
+			if(rs.next()) {
+				str = rs.getString("username");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		return record;
+		return str;
 	}
+
 	
 	
 	
 	
 	public void updateClass(int userid, String en, String td, String classname) {
-		String sql = "insert into classes(userid,td,en,classname) values(?,?,?,?)";
+		String sql = "insert into classes(userid,td,en,classname,username) values(?,?,?,?,?)";
 		try {
 			PreparedStatement pst = conn.prepareStatement(sql);
 			pst.setInt(1, userid);
 			pst.setString(2, td);
 			pst.setString(3, en);
 			pst.setString(4, classname);
+			pst.setString(5, this.getUserNameById(userid));
 			int rs = pst.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception

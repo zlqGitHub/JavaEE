@@ -77,7 +77,6 @@ public class ClassesAction extends ActionSupport implements ModelDriven<Classes>
 	
 	public String updateClass() {
 		String str = (String)ActionContext.getContext().getSession().get("tdname");
-		System.out.println("ee");
 		CService.updateClass(idlist, enname, str, cname);
 		return "updateClassOk";
 	}

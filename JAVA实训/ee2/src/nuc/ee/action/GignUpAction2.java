@@ -1,5 +1,8 @@
 package nuc.ee.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -11,6 +14,7 @@ import nuc.ee.service.UserService;
 public class GignUpAction2 extends ActionSupport implements ModelDriven<GignUp>{
 	GignUp gu = new GignUp();
 	UserService us = new UserService();
+	public String date;
 
 	public String execute() {
 		int num = (int) ActionContext.getContext().getSession().get("num");
@@ -19,6 +23,9 @@ public class GignUpAction2 extends ActionSupport implements ModelDriven<GignUp>{
 //		System.out.println("username="+gu.getUsername());
 //		System.out.println("td="+gu.getTd());
 		num--;
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		date = df.format(new Date());// new Date()为获取当前系统时间
+		
 		gu.setChange(num);
 		us.insert_user(gu,num,"2019-1-13");
 		

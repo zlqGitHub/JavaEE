@@ -6,7 +6,16 @@
 <head>
 <meta charset="utf-8">
 <title>分班页面</title>
-
+<style>
+	.submit:hover{
+		background: #3D598A;
+		border:1px solid #3D598A;
+		color:#FFF;
+	}
+	th,td{
+		height:40px;
+	}
+</style>
 <script type="text/javascript"
 		src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		
@@ -34,25 +43,25 @@ function swapCheck() {
 <s:form action="selectNameListByTdAction" method="post">
            请先选择技术方向:
     <select name="tdname">
-    	<s:iterator value="tdList" var="t">
+    	<s:iterator value="tdList" var="t" >
         	<option value="${t}">${t}</option>
         </s:iterator>
     </select>
-	<input type="submit" value="搜索">
+	<input type="submit" class="submit" value="搜索" style="margin:5px 10px;cursor: pointer;border:none;">
 </s:form>
 <br>
 
 
 <form action="divideClassAction?nowPage=1" method="post">
-<table border="1" style="width: 80%">
-    <tr>
+<table border="1" style="border-collapse:collapse;">
+    <tr style="width:460px">
     	<th colspan="7">本页共计: ${lists.size() }人</th>
     </tr>
 	<tr>
-		<th><input type="checkbox" name="all" onclick="swapCheck()"/>全选</th>
-		<th>学号</th>
-		<th>姓名</th>
-		<th>所选技术方向</th>
+		<th style="width:80px"><input type="checkbox" name="all" onclick="swapCheck()"/>全选</th>
+		<th style="width:120px">学号</th>
+		<th style="width:130px">姓名</th>
+		<th style="width:160px">所选技术方向</th>
 	</tr>	
 	<s:iterator value="lists" var="list">
 		<tr>
@@ -77,17 +86,16 @@ function swapCheck() {
 </s:if>
 
 <br>
-</form>
+</form >
 
-
-	第<s:property value="nowPage"/>页/共<s:property value="count"/>页
-	<a href="selectNameListByTdAction?nowPage=1">首页</a>
-	<a href="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>&vis=1">上一页</a>
-	<a href="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>&vis=2">下一页</a>
-	<a href="selectNameListByTdAction?nowPage=<s:property value="count"/>">尾页</a>
-	<form action="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>" method="post" style="display:inline;">
-	<input type="text" size="1" name="newPage" value="">
-	<input type="submit" value="go">	
+		第<s:property value="nowPage"/>页/共<s:property value="count"/>页
+		<a href="selectNameListByTdAction?nowPage=1">首页</a>
+		<a href="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>&vis=1">上一页</a>
+		<a href="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>&vis=2">下一页</a>
+		<a href="selectNameListByTdAction?nowPage=<s:property value="count"/>">尾页</a>
+		<form action="selectNameListByTdAction?nowPage=<s:property value="nowPage"/>" method="post" style="display:inline;">
+		<input type="text" size="1" name="newPage" value="">
+		<input type="submit" value="GO>>">	
 	</form>
 
 </body>
