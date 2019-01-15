@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import nuc.ee.service.*;
 import nuc.ee.model.*;
 
+@SuppressWarnings("serial")
 public class ClassesAction extends ActionSupport implements ModelDriven<Classes> {
 	public Classes clist = new Classes();
 	public List<Classes> lists = new ArrayList<Classes>();

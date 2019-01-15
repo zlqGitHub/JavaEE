@@ -8,14 +8,14 @@
 <title>班级页面</title>
 <style>
 	th,td{
-		height:40px;
+		height:25px;
 		text-align: center;
 	}
 
 </style>
 </head>
 <body>
-<table border="1" style="border-collapse: collapse;margin:30px 60px;">
+<table border="1" style="border-collapse: collapse;margin:20px 60px;">
 	<tr>
 		<th style="width:120px;">学号</th>
 		<th style="width:110px;">姓名</th>

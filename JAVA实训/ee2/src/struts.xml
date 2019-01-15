@@ -78,6 +78,11 @@
 		
 		
 		
+		<action name="uploadAction" class="nuc.ee.action.uploadAction" method="InuptUser">
+            <result name="uploadOK">
+              /admin/teacherAdmin.jsp
+            </result>
+        </action>
 		<action name="classesListAction" class="nuc.ee.action.ClassesAction" method="selectListAll">
     		<result name="selectListAllOk">/admin/classes.jsp</result>
     	</action>
@@ -104,6 +109,25 @@
     	</action>
 		
 		
+		
+		<action name="QueryAll" class="nuc.ee.action.AdministratorsAction" method="queryAll">
+           <result name="success">/admin/queryall.jsp</result>
+           <result name="error">/admin/error.jsp</result>
+       	</action>
+       	<action name="QueryByClass" class="nuc.ee.action.ClassesAction3" method="queryByClass">
+            <result name="success">/admin/queryclass.jsp</result>
+            <result name="error">/admin/error.jsp</result>
+        </action>
+        <action name="Del" class="nuc.ee.action.ClassesAction3" method="del">
+            <result name="success" type="redirect">QueryAll</result>
+        </action>
+        <action name="QueryUserById" class="nuc.ee.action.ClassesAction3" method="queryUserById">
+            <result name="success">/admin/edit.jsp</result>
+            <result name="error">/admin/error.jsp</result>
+        </action>
+         <action name="UpdateUser" class="nuc.ee.action.ClassesAction3" method="updateUser">
+            <result name="success" type="redirect">QueryAll</result>
+        </action>
 		
 	</package>
 </struts>

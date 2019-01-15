@@ -5,8 +5,10 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
+import nuc.ee.model.Classes;
 import nuc.ee.model.Company;
 import nuc.ee.model.GignUp;
 import nuc.ee.model.Teacher;
@@ -226,6 +228,156 @@ public class UserDao {
 			}		
 			return teaList;
 		}
+		
+		
+		//批量导入
+		public int insertUser(User user) {	
+			int re=0;
+			try{
+				Conn dbc=new Conn();
+				Connection conn=dbc.conn();
+				String sql_insert=null;
+				sql_insert="insert into user(username,password,userid,sex,age,telphone,department) values(?,?,?,?,?,?,?)";
+				PreparedStatement pst=conn.prepareStatement(sql_insert);
+				pst.setString(1,user.getUsername());
+				pst.setString(2, "123456");
+				pst.setInt(3, user.getUserid());
+				pst.setString(4, user.getSex());
+				pst.setInt(5, user.getAge());
+				pst.setString(6, user.getTelphone());
+				pst.setString(7, user.getDepartment());
+				re=pst.executeUpdate();
+				}
+			catch(Exception e){
+				System.out.println(e);
+			}
+			return re;
+		}
+		
+		//按班级查询
+		public ArrayList<Classes> query2(String classname) {
+		    ArrayList<Classes> users = new ArrayList<Classes>();
+		    ResultSet rs = null;
+		     try {
+		    	 Conn dbc=new Conn();
+				 Connection conn=dbc.conn();
+				 PreparedStatement pst =null;
+		         pst = conn.prepareStatement("select * from classes where classname=?");
+		         pst.setString(1,classname);
+		         rs = pst.executeQuery();
+		         while(rs.next()){
+		             Classes user = new Classes();
+		             user.setUserid(rs.getInt("userid"));
+		             user.setUsername(rs.getString("username"));
+		             user.setTeachername(rs.getString("teachername"));
+		             user.setEn(rs.getString("en"));
+		             user.setTd(rs.getString("td"));
+		             user.setClassname(rs.getString("classname"));
+		             user.setTeachername(rs.getString("teachername"));
+		             users.add(user);
+		         }
+		        
+		     } 
+		     catch (Exception e) {
+		         e.printStackTrace();
+		     }
+		     return users;
+		 }
+		
+		
+		public ArrayList<Classes> queryAll() {
+		    ArrayList<Classes> users = new ArrayList<Classes>();
+		    ResultSet rs = null;
+		     try {
+		    	 Conn dbc=new Conn();
+				 Connection conn=dbc.conn();
+				 PreparedStatement pst =null;
+		         pst = conn.prepareStatement("select * from classes");
+		         rs = pst.executeQuery();
+		         while(rs.next()){
+		             Classes user = new Classes();
+		             user.setUserid(rs.getInt("userid"));
+		             user.setUsername(rs.getString("username"));
+		             user.setTeachername(rs.getString("teachername"));
+		             user.setEn(rs.getString("en"));
+		             user.setTd(rs.getString("td"));
+		             user.setClassname(rs.getString("classname"));
+		             users.add(user);
+		         }
+		         return users;
+		     } catch (Exception e) {
+		         e.printStackTrace();
+		     }
+		     return null;
+		 }
+		
+		public boolean del(int id) {
+		     try {
+		    	 Conn dbc=new Conn();
+				 Connection conn=dbc.conn();
+				 PreparedStatement pst =null;
+		        pst = conn.prepareStatement("delete from classes where userid=?");
+		        pst.setInt(1,id);
+		        int row = pst.executeUpdate();
+		        if(row>0){
+		            return true;
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return false;
+		}
+		
+		
+		public Classes query1(int id) {
+		    Classes user = new Classes();
+		    ResultSet rs = null;
+		     try {
+		    	 Conn dbc=new Conn();
+				 Connection conn=dbc.conn();
+				 PreparedStatement pst =null;
+		        pst = conn.prepareStatement("select * from classes where userid=?");
+		        pst.setInt(1,id);
+		        rs = pst.executeQuery();
+		        if(rs.next()){
+		        	user.setUserid(rs.getInt("userid"));
+		        	user.setUsername(rs.getString("username"));
+		        	user.setTeachername(rs.getString("teachername"));
+		        	user.setEn(rs.getString("en"));
+		        	user.setTd(rs.getString("td"));
+		        	user.setClassname(rs.getString("classname"));
+		            return user;
+		        }
 
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return null;
+		}
+		
+		
+		public boolean updateUserDao(Classes classes) {
+		     try {
+		    	 Conn dbc=new Conn();
+				 Connection conn=dbc.conn();
+				 PreparedStatement pst =null;
+		        pst = conn.prepareStatement("update classes set teachername=?,en=?,td=?,classname=?,username=? where userid=?");
+		        pst.setString(1,classes.getTeachername());
+		        pst.setString(2,classes.getEn());
+		        pst.setString(3,classes.getTd());
+		        pst.setString(4,classes.getClassname());
+		        pst.setString(5,classes.getUsername());
+		        pst.setInt(6,classes.getUserid());
+		        int row = pst.executeUpdate();
+		        if(row>0){
+		            return true;
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return false;
+		}
 
+		
+	
 }

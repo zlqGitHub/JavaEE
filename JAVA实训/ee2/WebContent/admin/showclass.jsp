@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 	td{
-		height:35px;
+		height:25px;
 		text-align: center;
 	}
 	a{

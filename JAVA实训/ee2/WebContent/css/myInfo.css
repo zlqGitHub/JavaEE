@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.table{
+	width:360px;
+	height:250px;
+	border:1px solid red;
+	padding-left:5px;
+}
+
+.table input{
+	margin-top:8px;
+	margin-left:5px;
+	width:140px;
+	height:20px;
+	padding-left:3px;
+	line-height:20px;
+}
+
+.icon{
+	width:140px;
+	height:170px;
+	border:1px solid red;
+	position: absolute;
+	top:20px;
+	left: 220px;
+	text-align:center;
+}
+
+.submit{
+	display:block;
+	width:140px;
+	height:35px;
+	background:red;
+	border:none;
+	cursor: pointer;
+	position: relative;
+	top:-36px;
+	left: 210px;
+	color:#FFF;
+	font-size:14px;
+	letter-spacing: 5px;
+}
+.block{
+	display:block;
+	opacity:0.2;
+	position: relative;
+	filter:Alpha(opacity=30);
+	top:-172px;
+	left: 170px;
+	cursor: pointer;
+}
+
+
+

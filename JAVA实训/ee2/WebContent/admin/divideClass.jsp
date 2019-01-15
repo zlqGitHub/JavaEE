@@ -13,7 +13,7 @@
 		color:#FFF;
 	}
 	th,td{
-		height:40px;
+		height:30px;
 	}
 </style>
 <script type="text/javascript"
