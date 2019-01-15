@@ -56,6 +56,26 @@ public class UserService {
 		return teaList;
 	}
 	
+	//查询个人信息
+	public List<User> myInfo_select(int userid){
+		List<User> list = new ArrayList<User>();
+		list = uDao.myInfo_select(userid);
+		return list;
+	}
+	
+	//修改个人信息
+	public int updateMyInfo(int userid,String pass,String tel) {
+		int i = 0;
+		i = uDao.updateMyInfo(userid, pass, tel);
+		return i;
+	}
+	
+	//获取个人报名信息
+	public GignUp get_gignUp(int userid){
+		GignUp gu = new GignUp(); 
+		gu = uDao.get_gignUp(userid);
+		return gu;
+	}
 	
 
 }

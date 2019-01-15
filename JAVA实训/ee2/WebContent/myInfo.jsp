@@ -6,22 +6,77 @@
 <head>
 	<title>我的页面</title>
 	<link rel="icon" type="image/x-icon" href="./images/my.png">
-	<link rel="stylesheet" type="text/css" href="./style/myInfo.css">
+	<link rel="stylesheet" type="text/css" href="./css/myInfo.css">
 	<script type="text/javascript" src="./js/myInfo.js"></script>
 </head>
 <body>
+		<span class="span1">个人信息：</span>
 		<div class="table">
-			<s:form action="UpdateMyInfoAction" method="post" name="form">
-				姓名:<input type="text" name="username" value="${myInfoList[0].getName()}" disabled><br>
-				学号:<input type="text" name="userId" value="${myInfoList[0].getStudent_no()}" disabled><br>
-				密码:<input id="pass" type="password" name="password" value="${myInfoList[0].getPassword()}"><br>
-				性别:<input type="text" name="sex" value="${myInfoList[0].getSex()}" disabled><br>
-				年龄:<input type="text" name="age" value="${myInfoList[0].getAge()}" disabled><br>
-				电话:<input type="text" name="telphone" value="${myInfoList[0].getTelphone()}"><br>
-				院系:<input type="text" name="department" value="${myInfoList[0].getDepartment()}" disabled>
-				<s:submit cssClass="submit" cssStyle="width:130px;height:25px;border-radius: 5px;" value="修改"/>
-			
-			</s:form>
+			<table border="1" style="border-collapse: collapse;">
+				<s:form action="UpdateMyInfoAction" method="post" name="form">
+					<tr>
+						<td>姓名:</td>
+						<td>
+							<input type="text" name="username" value="${myInfo[0].getUsername()}" disabled>
+						</td>
+					</tr>
+					<tr>
+						<td>学号:</td>
+						<td>
+							<input type="text" name="userId" value="${myInfo[0].getUserid()}" disabled>
+						</td>
+					</tr>
+					<tr>
+						<td>密码:</td>
+						<td>
+							<input id="pass" type="password" name="password" value="${myInfo[0].getPassword()}">
+						</td>
+					</tr>
+					<tr>
+						<td>性别:</td>
+						<td>
+							<input type="text" name="sex" value="${myInfo[0].getSex()}" disabled>
+						</td>
+					</tr>
+					<tr>
+						<td>年龄:</td>
+						<td>
+							<input type="text" name="age" value="${myInfo[0].getAge()}" disabled>
+						</td>
+					</tr>
+					<tr>
+						<td>电话:</td>
+						<td>
+							<input type="text" name="telphone" value="${myInfo[0].getTelphone()}">
+						</td>
+					</tr>
+					<tr>
+						<td>院系:</td>
+						<td>
+							<input type="text" name="department" value="${myInfo[0].getDepartment()}" disabled>
+						</td>
+					</tr>
+					
+					<s:submit cssClass="submit" cssStyle="width:90px;height:25px;border-radius: 5px;" value="修改"/>
+				
+				</s:form>
+			</table>
 		</div>
+		<img id="block" class="block" src="./images/block.png" width="20px">
+		
+		<span class="span1">报名情况：</span>
+		<table border="1" style="border-collapse: collapse;margin-left:20px;">
+			<tr>
+				<th width="110px">所选课程</th>
+				<th width="120px">报名剩余次数</th>
+				<th width="120px">报名日期</th>
+			</tr>
+			<tr>
+				<td height="18px">${sessionScope.gu.getTd() }</td>
+				<td>${sessionScope.gu.getChange() }</td>
+				<td>${sessionScope.gu.getDate() }</td>
+			</tr>
+		</table>
+		
 </body>
 </html>

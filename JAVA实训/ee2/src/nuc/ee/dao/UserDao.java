@@ -3,9 +3,10 @@ package nuc.ee.dao;
 import java.sql.Connection;
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 import java.util.*;
 
 import nuc.ee.model.Classes;
@@ -230,6 +231,88 @@ public class UserDao {
 		}
 		
 		
+		//用户登录成功后获取个人信息
+		public List<User> myInfo_select(int userid){
+			ResultSet rs = null;
+			List<User> list = new ArrayList<User>();
+			try {
+				Conn dbc = new Conn();
+				Connection conn = dbc.conn();
+				PreparedStatement pst =null;
+				String myInfo_select = "select * from user where userid = ?";
+				pst = conn.prepareStatement(myInfo_select);
+				pst.setInt(1, userid);
+				rs = pst.executeQuery();
+				
+				while(rs.next()) {
+					User myI = new User();
+					myI.setUserid(rs.getInt(2));
+					myI.setPassword(rs.getString(3));
+					myI.setUsername(rs.getString(4));
+					myI.setSex(rs.getString(5));
+					myI.setAge(rs.getInt(6));
+					myI.setTelphone(rs.getString(7));
+					myI.setDepartment(rs.getString(8));
+					list.add(myI);
+				}
+				
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return list;
+		}
+		
+		//3、修改个人信息     参数：学号
+		public int updateMyInfo(int userid,String pass,String tel) {
+			int i = 0;
+			try {
+				Conn dbc = new Conn();
+				Connection conn = dbc.conn();
+				PreparedStatement pst =null;
+				String update = "update user set password=?,telphone=? where userid=?";
+				pst = conn.prepareStatement(update);
+				pst.setString(1, pass);
+				pst.setString(2, tel);
+				pst.setInt(3, userid);
+				i = pst.executeUpdate();						
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return i;
+		}
+		
+		//登录成功后获取个人报名信息
+		public GignUp get_gignUp(int userid){
+			GignUp gu = new GignUp(); 
+			ResultSet rs = null;
+			try {
+				Conn dbc = new Conn();
+				Connection conn = dbc.conn();
+				PreparedStatement pst =null;
+				
+				String insert_info = "select * from namelist where userid = ?";
+				pst = conn.prepareStatement(insert_info);
+				pst.setInt(1, userid);		
+				rs = pst.executeQuery();
+				
+				if(rs.next()) { 
+					gu.setTd(rs.getString(2));
+					gu.setChange(rs.getInt(5));
+					gu.setDate(rs.getString(6));
+				}
+						
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+//			System.out.println("3."+change);
+			return gu;
+		}
+		
 		//批量导入
 		public int insertUser(User user) {	
 			int re=0;
@@ -253,6 +336,7 @@ public class UserDao {
 			}
 			return re;
 		}
+		
 		
 		//按班级查询
 		public ArrayList<Classes> query2(String classname) {
@@ -378,6 +462,4 @@ public class UserDao {
 		    return false;
 		}
 
-		
-	
 }

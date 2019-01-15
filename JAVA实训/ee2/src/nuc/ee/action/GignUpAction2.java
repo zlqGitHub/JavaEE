@@ -16,6 +16,14 @@ public class GignUpAction2 extends ActionSupport implements ModelDriven<GignUp>{
 	UserService us = new UserService();
 	public String date;
 
+	public GignUp getGu() {
+		return gu;
+	}
+
+	public void setGu(GignUp gu) {
+		this.gu = gu;
+	}
+
 	public String execute() {
 		int num = (int) ActionContext.getContext().getSession().get("num");
 		System.out.println("num="+num);
@@ -28,7 +36,9 @@ public class GignUpAction2 extends ActionSupport implements ModelDriven<GignUp>{
 		
 		gu.setChange(num);
 		us.insert_user(gu,num,"2019-1-13");
-		
+		gu = us.get_gignUp((int)ActionContext.getContext().getSession().get("userid"));
+
+		ActionContext.getContext().getSession().put("gu", gu);
 		return "success";
 	}
 		
