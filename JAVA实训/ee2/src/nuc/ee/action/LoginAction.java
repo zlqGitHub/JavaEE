@@ -100,9 +100,11 @@ public class LoginAction extends ActionSupport implements ModelDriven<UserLogin>
 			comList = us.get_company();
 			teaList = us.get_teacher();
 //			System.out.println("teaList="+teaList);
+			ActionContext.getContext().getSession().put("csList", csList);
 			ActionContext.getContext().getSession().put("teaList", teaList);
 			ActionContext.getContext().getSession().put("comList", comList);
 			height = (int) ((Math.ceil((csList.size()/2.0))*187));
+			ActionContext.getContext().getSession().put("height", height);
 //			System.out.println(num);
 			
 			return "success";

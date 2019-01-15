@@ -55,7 +55,7 @@
                     <li><a href="http://ss.nuc.edu.cn/#tips" target="_blank">关于我们</a></li>
                 </ul>
                 <s:if test="(#session.userid) != '' ? 1 : 0">
-					<span class="myInfo">欢迎&nbsp;<a class="a0" title="我的信息" href="#">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
+					<span class="myInfo">欢迎&nbsp;<a class="a0" title="我的信息" href="myInfo.jsp">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
 				</s:if>
 				<s:else>
 					<span class="myInfo"><a class="a0" style="display:block;position:relative;left:35px;" href="login.jsp">未登录</a></span>
@@ -147,8 +147,8 @@
                         <span class="span4">我们提供针对性的课程体系</span>
                     </div>
                 </div>
-                <div class="course_main" style="height:${height}px">
-                	<s:iterator value="csList" var="c">
+                <div class="course_main" style="height:${sessionScope.height}px">
+                	<s:iterator value="%{#session.csList}" var="c">
                 		
 	                    <div class="shadowbox2" name="shadowbox2">
 	                        <div class="firstdiv">
