@@ -9,6 +9,23 @@
 	<link rel="stylesheet" href="./css/admin.css">
 	<script type="text/javascript" src="./js/jquery.min.js" ></script>
 	<script type="text/javascript" src="./js/admin.js" ></script>
+	<style>
+		.zhuxiao{
+			width:50px;
+			height: 20px;
+			position:absolute;
+			top:0px;
+			right:20px;
+			text-decoration: none;
+			color:red;
+		}
+	</style>
+	<script type="text/javascript">
+		window.history.forward(1);
+		function replaceDoc(){		
+			window.location.replace("index.jsp");
+		}
+	</script>
 </head>
 <body>
 	<div class="left">
@@ -36,6 +53,7 @@
 	<div class="top">
 			<div class="leftTiyle" id="flTitle">业务人员管理</div>
 			<div class="thisUser">当前用户：${sessionScope.admin}</div>
+			<div><a class="zhuxiao" id="zhuxiao" href="javascript:;" onclick="replaceDoc()">注销</a></div>
 	</div>
 
 	<iframe name="main" target="_parent" frameborder="0" scrolling="no" class="content-main" id="content-main" src="">

@@ -10,6 +10,9 @@
 	<meta http-equiv="expires" content="0" />
 	<title>管理系统</title>
 	<link rel="icon" type="image/x-icon" href="../images/admin.png">
+	<script type="text/javascript">
+		window.history.forward(1);
+	</script>
 </head>
 <body>
 <s:fielderror cssStyle="color:red" />

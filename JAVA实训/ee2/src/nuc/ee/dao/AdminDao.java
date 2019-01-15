@@ -76,7 +76,6 @@ public class AdminDao {
 				for(int j=i+1;j<csList.size();j++) {
 					if(csList.get(i).getTd().equals(csList.get(j).getTd())) {
 						csList.remove(j);
-						System.out.println("a");
 						j--;
 					}
 					

@@ -12,6 +12,24 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/tools.js"></script>
     <script src="./js/main.js"></script>
+    <style>
+		.zhuxiao{
+			width:50px;
+			height: 20px;
+			position:relative;
+			top:-104px;
+			right:-1160px;
+			text-decoration: none;
+			color:#EF6762;
+			font-size:15px;
+		}
+	</style>
+	<script type="text/javascript">
+		function replaceDoc(){		
+			window.location.replace("index.jsp");
+		}
+	</script>
+    
 </head>
 <body>
     <div class="nav">
@@ -33,15 +51,16 @@
                     <li><a href="#" style="color: #EF6762">网站首页</a></li>
                     <li><a href="company.jsp">公司概况</a></li>
                     <li><a href="teacher.jsp">师资力量</a></li>
-                    <li><a href="GignUpAction" target="_blank">在线报名</a></li>
+                    <li><a href="GignUpAction">在线报名</a></li>
                     <li><a href="http://ss.nuc.edu.cn/#tips" target="_blank">关于我们</a></li>
                 </ul>
                 <s:if test="(#session.userid) != '' ? 1 : 0">
-					<span class="myInfo">欢迎，&nbsp;<a class="a0" title="我的信息" href="#">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
+					<span class="myInfo">欢迎&nbsp;<a class="a0" title="我的信息" href="#">[<%=ActionContext.getContext().getSession().get("userid") %>]</a>&nbsp;登录</span>
 				</s:if>
 				<s:else>
 					<span class="myInfo"><a class="a0" style="display:block;position:relative;left:35px;" href="login.jsp">未登录</a></span>
 				</s:else>
+				<a class="zhuxiao" id="zhuxiao" href="javascript:;" onclick="replaceDoc()">注销</a>
                 
             </div>
         </div>

@@ -7,6 +7,9 @@
 	<title>用户注册</title>
 	<link rel="icon" href="./imgs/school.jpg" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="./css/regist.css">
+	<script type="text/javascript">
+		window.history.forward(1);
+	</script>
 </head>
 <body>
 	<div class="header">
@@ -32,7 +35,7 @@
 					<s:submit name="regist" value="立即注册" cssClass="right" cssStyle="display: inline-block;background:#65B41A;width:157px;height:39px;color:#FFF;position: relative;left:-55px;cursor: pointer;"/>
 				</s:form>
 				<div class="back">
-					<a href="login.jsp">返回登录</a>
+					<a href="index.jsp">返回登录</a>
 				</div>
 				<s:if test='#session.success=="注册成功"'>
 					<div class="success">
@@ -40,7 +43,7 @@
 					</div>
 					<%
 						ActionContext.getContext().getSession().put("success", "");
-						response.setHeader("refresh", "1.5,login.jsp");
+						response.setHeader("refresh", "1.5,index.jsp");
 					%>				
 				</s:if>
 			</div>

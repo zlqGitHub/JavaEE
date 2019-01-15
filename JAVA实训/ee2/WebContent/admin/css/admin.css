@@ -38,7 +38,7 @@ body {
 
 .thisUser {
 	float: right;
-	margin-right: 30px;
+	margin-right: 110px;
 }
 
 .bigTitle {
@@ -80,7 +80,7 @@ body {
 	position: absolute;
 	left:320px;
 	top:120px;
-	width: 1200px;
+	width: 985px;	
 	height: 600px;
 	/*background: red;*/
 }
