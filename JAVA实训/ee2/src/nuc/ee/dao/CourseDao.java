@@ -11,6 +11,7 @@ import nuc.ee.model.Course;
 import nuc.ee.util.Conn;
 
 public class CourseDao {
+	//学生查看课程信息
 	public List<Course> course_select() {
 		ResultSet rs = null;
 		List<Course> csList = new ArrayList<Course>();

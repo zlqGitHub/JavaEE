@@ -11,13 +11,13 @@ public class AdminService {
 	AdminDao ad = new AdminDao();
 	List<Admin> adList = new ArrayList<Admin>();
 	
-	//登录
+	//管理登录
 	public int get_admin(String name,String pass,String type) {
 		int i = ad.select_admin(name,pass,type);
 		return i;
 	}
 	
-	//更新
+	//老师更新课程信息
 	public List<Course> uptate_course(){
 		List<Course> csList = new ArrayList<Course>();
 		csList = ad.update_course();
