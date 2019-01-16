@@ -19,6 +19,16 @@ import nuc.ee.util.ExcelUtil;
 public class uploadAction extends ActionSupport{
 	UserDao dao = new UserDao();
 	private File upload;
+	public String tip;
+	
+	public String getTip() {
+		return tip;
+	}
+
+	public void setTip(String tip) {
+		this.tip = tip;
+	}
+
 	public File getUpload() {
 		return upload;
 	}
@@ -57,7 +67,7 @@ public class uploadAction extends ActionSupport{
 					user.setAge(Integer.parseInt(age));
 					
 					String telphone = df.format(hssfRow.getCell(5).getNumericCellValue());  
-//					System.out.println("telphone="+telphone);
+					System.out.println("telphone="+telphone);
 					
 					user.setTelphone(telphone);
 					user.setDepartment(ExcelUtil.formatCell(hssfRow.getCell(6)));
@@ -68,7 +78,7 @@ public class uploadAction extends ActionSupport{
 					}
 				}
 			}
-
+			tip = "上传成功！";
 			return "uploadOK";
 		}
 

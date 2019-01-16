@@ -29,6 +29,7 @@ public class LoginAction extends ActionSupport implements ModelDriven<UserLogin>
 	List<Teacher> teaList = new ArrayList<Teacher>();   //保存教师信息
 	List<User> myInfo = new ArrayList<User>();            //保存个人信息
 	GignUp gu = new GignUp();                          //保存个人报名信息
+	String classes;                                    //保存自己的分班的信息
 	public int userid;
 	public String username;
 	public String getUsername() {
@@ -109,6 +110,14 @@ public class LoginAction extends ActionSupport implements ModelDriven<UserLogin>
 		this.gu = gu;
 	}
 
+	public String getClasses() {
+		return classes;
+	}
+
+	public void setClasses(String classes) {
+		this.classes = classes;
+	}
+
 	public String LoginMethod() {
 		System.out.println("u="+u.getUserid());
 		user = us.login_user(u);   
@@ -122,11 +131,16 @@ public class LoginAction extends ActionSupport implements ModelDriven<UserLogin>
 			teaList = us.get_teacher();
 			myInfo = us.myInfo_select(user.getUserid());
 			gu = us.get_gignUp(user.getUserid());
+			classes = us.get_class(user.getUserid());
+			if(classes == null) {
+				classes = "暂未分班";
+			}
 			System.out.println("myInfo="+myInfo);
 			//将个人信息保存
 			ActionContext.getContext().getSession().put("pass",myInfo.iterator().next().getPassword());
 			ActionContext.getContext().getSession().put("tel",myInfo.iterator().next().getTelphone());
 			
+			ActionContext.getContext().getSession().put("classes", classes);
 			ActionContext.getContext().getSession().put("gu", gu);
 			ActionContext.getContext().getSession().put("myInfo", myInfo);
 			ActionContext.getContext().getSession().put("csList", csList);

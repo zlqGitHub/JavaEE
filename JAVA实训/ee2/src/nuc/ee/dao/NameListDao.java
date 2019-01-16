@@ -94,7 +94,7 @@ public class NameListDao {
 			while(rs.next()) {
 				list.add(rs.getInt("userid"));
 			}	
-			n = list.size() - this.getClassesCount(td);
+			n = list.size();
 			n = (int)Math.ceil(1.0 * n / num);
 		} catch (Exception e) {
 			// TODO: handle exception

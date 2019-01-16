@@ -75,14 +75,20 @@ function swapCheck() {
 <br>
 
 <s:if test="flag==true">
-            请先选择企业：
+    <s:if test="lists.size()<20">
+     请输入回复信息:<input type="text" name="cname" value="">
+	<input type="submit" value="回复">
+    </s:if>
+    <s:else>
+      请先选择企业：
     <select name="enname">
     	<s:iterator value="enList" var="e">
         	<option value="${e}">${e}</option>
         </s:iterator>
-    </select><br><br>
+    <lect><br><br>
            请填写班级名称:<input type="text" name="cname" value="">
 	<input type="submit" value="确认分班">
+    </s:else>            
 </s:if>
 
 <br>

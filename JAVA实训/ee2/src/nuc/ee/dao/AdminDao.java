@@ -62,15 +62,16 @@ public class AdminDao {
 				c.setStatus(rs.getString(4));
 				csList.add(c);
 			}
-			
+//			System.out.println(csList);
 			//去掉关闭的课程
 			for(int i=0;i<csList.size();i++) {
 				if("未开放".equals(csList.get(i).getStatus())) {
 					csList.remove(i);	
+					i--;
 				}
 			}
 			
-			
+//			System.out.println(csList);
 			for(int i=0;i<csList.size();i++) {
 				
 				for(int j=i+1;j<csList.size();j++) {

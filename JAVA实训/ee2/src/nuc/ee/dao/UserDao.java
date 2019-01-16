@@ -264,6 +264,28 @@ public class UserDao {
 			return list;
 		}
 		
+		//用户登录成功后获取自己的班级信息
+		public String get_class(int id){
+			String classes = null;
+			ResultSet rs = null;
+			try {
+				Conn dbc = new Conn();   
+				Connection conn = dbc.conn();
+				PreparedStatement pst = null;
+				String select = "select * from classes where userid = ?";
+				pst = conn.prepareStatement(select);
+				pst.setInt(1, id);
+				rs = pst.executeQuery();
+				if(rs.next()) {
+					classes = rs.getString(5);
+				}
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}		
+			return classes;
+		}
+		
 		//3、修改个人信息     参数：学号
 		public int updateMyInfo(int userid,String pass,String tel) {
 			int i = 0;

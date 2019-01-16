@@ -83,7 +83,7 @@
 		
 		<action name="uploadAction" class="nuc.ee.action.uploadAction" method="InuptUser">
             <result name="uploadOK">
-              /admin/teacherAdmin.jsp
+              /admin/upload.jsp
             </result>
         </action>
 		<action name="classesListAction" class="nuc.ee.action.ClassesAction" method="selectListAll">

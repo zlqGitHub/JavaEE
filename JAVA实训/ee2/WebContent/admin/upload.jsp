@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+<s:property value="tip"/>
 <form action="uploadAction" method="post" enctype="multipart/form-data">
 	文件：<input type="file" name="upload" value="">
 	<input type="submit" value="上传">

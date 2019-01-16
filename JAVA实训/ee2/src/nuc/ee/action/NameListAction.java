@@ -21,7 +21,7 @@ public class NameListAction extends ActionSupport implements ModelDriven<NameLis
 	public boolean flag = false;
 	public int nowPage = 1;
 	public String newPage;
-	public int num = 2;
+	public int num = 50;
 	public int count;
 	public int vis = 0;
 	

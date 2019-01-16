@@ -70,11 +70,13 @@
 				<th width="110px">所选课程</th>
 				<th width="120px">报名剩余次数</th>
 				<th width="120px">报名日期</th>
+				<th width="120px">分班情况</th>
 			</tr>
 			<tr>
-				<td height="18px">${sessionScope.gu.getTd() }</td>
-				<td>${sessionScope.gu.getChange() }</td>
-				<td>${sessionScope.gu.getDate() }</td>
+				<td style="text-align: center;" height="18px">${sessionScope.gu.getTd() }</td>
+				<td style="text-align: center;">${sessionScope.gu.getChange() }</td>
+				<td style="text-align: center;">${sessionScope.gu.getDate() }</td>
+				<td style="text-align: center;">${sessionScope.classes }</td>
 			</tr>
 		</table>
 		

@@ -77,5 +77,10 @@ public class UserService {
 		return gu;
 	}
 	
-
+	//获取自己的分班信息
+	public String get_class(int id){
+		String classes =null;
+		classes = uDao.get_class(id);
+		return classes;
+	}
 }
