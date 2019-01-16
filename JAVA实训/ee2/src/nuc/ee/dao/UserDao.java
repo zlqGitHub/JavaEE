@@ -286,7 +286,7 @@ public class UserDao {
 			return classes;
 		}
 		
-		//3、修改个人信息     参数：学号
+		//修改个人信息 
 		public int updateMyInfo(int userid,String pass,String tel) {
 			int i = 0;
 			try {
@@ -331,7 +331,7 @@ public class UserDao {
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-//			System.out.println("3."+change);
+
 			return gu;
 		}
 		
